@@ -1,8 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./counter/counterSlice";
+import { createStore, applyMiddleware, compose } from "redux";
+import { reducer } from "./reducer";
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+const composer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const thunk = (store) => (next) => (action) => {
+  if (typeof action === "function") {
+    return action(store.dispatch, store.getState);
+  }
+  return next(action);
+};
+
+export const store = createStore(reducer, composer(applyMiddleware(thunk)));
