@@ -22,3 +22,10 @@ li {
 .App {
   text-align: center;
 }
+
+.show {
+  display: flex;
+}
+.hide {
+  display: none;
+}
