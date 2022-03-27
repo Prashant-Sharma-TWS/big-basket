@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+.footer{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.footer a{
+    text-decoration: none;
+    color: gray;
+}
+
+.footer h4{
+    color: #6cd138;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.footerSection1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    padding: 10px 15px 5px;
+    border-bottom: 1px dotted #dedede;
+}
+
+.badge{
+    max-width: 150px;
+    margin-top: 8px;
+}
+
+.socialbadge{
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.footerSection1 div{
+    width: 25%;
+}
+
+.footerSection1 li{
+    padding: 5px 0;
+    list-style: none;
+}
+
+.footerSection2{
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.footerSection2 h4{
+    font-size: 14px;
+}
+
+.footerSection2 >div{
+    padding: 3px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 2fr 9fr;
+}
+
+.footerSection2 p{
+    display: inline-block;
+}
+
+/* .footerSection2 div div:first-child{
+    width: 15%;
+    background-color: black;
+} */
+
+/* .paymentIconDiv{
+    display: flex;
+    flex-direction: row;
+} */
+
+.paymentVisa{
+    width: 64px;
+}
+.paymentMaster{
+    width: 64px;
+    margin-bottom: 12px;
+    margin-left: 10px;
+}
+.paymentPaytm{
+    width: 80px;
+    margin-bottom: 21px;
+    margin-left: 10px;
+}
+.paymentMobi{
+    width: 85px;
+    margin-bottom: 21px;
+    margin-left: 10px;
+}
+.paymentRupay{
+    width: 90px;
+    margin-bottom: 19px;
+    margin-left: 10px;
+}
+.paymentAmerican{
+    width: 70px;
+    margin-bottom: 19px;
+    margin-left: 10px;
+}
