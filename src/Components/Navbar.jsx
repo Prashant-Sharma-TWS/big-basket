@@ -11,6 +11,7 @@ export const Navbar = () => {
     city: "Bangalore",
     pincode: 560004,
   });
+  const [sidebar, setSidebar] = useState(false);
 
   return (
     <>
@@ -18,6 +19,11 @@ export const Navbar = () => {
         <div>
           <div>
             <div>
+              <div className="hamburger" onClick={() => setSidebar(true)}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
               <div className="user">
                 <i></i>
                 <ul className="user-option">
@@ -101,7 +107,7 @@ export const Navbar = () => {
           </ul>
         </div>
         <div>
-          <ShopByCategory />
+          <ShopByCategory className={sidebar ? "show-sidebar" : ""} />
         </div>
       </Nav>
     </>

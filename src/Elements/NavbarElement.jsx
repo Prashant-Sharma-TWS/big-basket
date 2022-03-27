@@ -25,6 +25,10 @@ export const Nav = styled.nav`
       }
     }
 
+    .hamburger {
+      display: none;
+    }
+
     @media screen and (max-width: 870px) {
       width: 100%;
       background-color: #84c225;
@@ -33,13 +37,31 @@ export const Nav = styled.nav`
         flex-direction: column;
 
         > div:nth-child(1) {
-          width: 78%;
-          margin-left: auto;
+          width: 90%;
+          margin: auto;
           justify-content: space-between;
 
           .user,
           .location {
             display: inline-block;
+          }
+          .basket {
+            width: 65px;
+          }
+
+          .hamburger {
+            width: 26px;
+            height: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            span {
+              width: 100%;
+              height: 2px;
+              background-color: white;
+            }
           }
         }
 
@@ -361,6 +383,16 @@ export const ShopByCategorySection = styled.section`
   align-items: center;
   border: 1px solid #eee;
 
+  @media screen and (max-width: 870px) {
+    position: absolute;
+    flex-direction: column;
+    left: -100%;
+
+    .show-sidebar {
+      left: 0;
+    }
+  }
+
   > div {
     font-size: 15px;
     padding: 8px 6px;
@@ -461,6 +493,10 @@ export const ShopSection = styled.section`
     .show-category {
       display: block;
     }
+  }
+
+  @media screen and (max-width: 870px) {
+    display: none;
   }
 `;
 
