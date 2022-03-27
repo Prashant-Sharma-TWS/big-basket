@@ -1,11 +1,11 @@
 import React from "react";
-import { ArrowDown } from "../Elements/Element";
+import { ArrowDown } from "../../Elements/Element";
 import {
   CategoryDiv,
   ShopByCategorySection,
   ShopSection,
-} from "../Elements/NavbarElement";
-import categoryData from "../category.json";
+} from "../../Elements/NavbarElement";
+import categoryData from "../../category.json";
 
 export const ShopByCategory = () => {
   return (

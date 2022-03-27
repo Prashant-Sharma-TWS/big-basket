@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown } from "../Elements/Element";
-import { Nav } from "../Elements/NavbarElement";
+import { ArrowDown } from "../../Elements/Element";
+import { Nav } from "../../Elements/NavbarElement";
 import { Shop, ShopByCategory } from "./ShopByCategory";
 
 export const Navbar = () => {

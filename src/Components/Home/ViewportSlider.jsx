@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { ViewportSliderElement } from "../Elements/Viewport";
+import { ViewportSliderElement } from "../../Elements/Viewport_Bank";
 
 export class ViewportSlider extends Component {
   render() {
@@ -85,13 +85,13 @@ export class ViewportBottomSlider extends Component {
       slidesToShow: 6,
       slidesToScroll: 1,
       initialSlide: 0,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 3000,
       responsive: [
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 4,
+            slidesToShow: 2,
             slidesToScroll: 1,
             initialSlide: 2,
           },
