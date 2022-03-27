@@ -379,10 +379,23 @@ export const ShopByCategorySection = styled.section`
   }
 
   .shop-by-category {
+    position: relative;
     width: 245px;
     font-weight: bold;
     color: white;
     background-color: #84c225;
+
+    .show-category {
+      display: none;
+      width: 1145px;
+      top: 100%;
+      left: 0;
+    }
+    :hover {
+      .show-category {
+        display: block;
+      }
+    }
   }
 
   .offers {
@@ -438,7 +451,10 @@ export const ShopSection = styled.section`
   }
 
   .show-category {
+    width: 1160px;
     display: none;
+    top: 90%;
+    left: -180%;
     transition: all 0.5s ease-in-out;
   }
   :hover {
@@ -449,10 +465,9 @@ export const ShopSection = styled.section`
 `;
 
 export const CategoryDiv = styled.div`
-  width: 1160px;
   position: absolute;
-  top: 90%;
-  left: -180%;
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
   box-shadow: 0 2px 4px 0 #b5b5b5 !important;
   background-color: #fff;
 

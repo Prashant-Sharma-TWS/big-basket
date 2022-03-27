@@ -13,6 +13,7 @@ export const ShopByCategory = () => {
       <div className="shop-by-category">
         <span>SHOP BY CATEGORY</span>
         <ArrowDown top="-3px" />
+        <TopCategory categoryData={categoryData} />
       </div>
       <div className="offers">
         <i></i>
