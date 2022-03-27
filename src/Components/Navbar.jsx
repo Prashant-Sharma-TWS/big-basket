@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "../Elements/Element";
 import { Nav } from "../Elements/NavbarElement";
+import { Shop, ShopByCategory } from "./ShopByCategory";
 
 export const Navbar = () => {
   const [cart, setCart] = useState(0);
@@ -34,6 +35,9 @@ export const Navbar = () => {
                 <Link to="/big-basket">
                   <i className="big-basket-logo"></i>
                 </Link>
+              </div>
+              <div className="shop-on-scroll">
+                <Shop />
               </div>
               <div className="location">
                 <i></i>
@@ -96,6 +100,9 @@ export const Navbar = () => {
             </li>
           </ul>
         </div>
+        <div>
+          <ShopByCategory />
+        </div>
       </Nav>
     </>
   );
@@ -106,7 +113,6 @@ setTimeout(() => {
   window.addEventListener("scroll", () => {
     var nav = document.querySelector(".nav-sticky");
     var windowPosition = window.scrollY > 90;
-    console.log("yes", nav);
 
     nav.classList.toggle("scrolling-active", windowPosition);
   });

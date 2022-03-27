@@ -40,31 +40,44 @@ li {
   border: 0 0 1px;
 }
 
-.scrolling-active > div > div:nth-child(1) > div {
-  align-items: start;
-}
-.nav-sticky.scrolling-active .big-basket-logo {
-  position: relative;
-  top: -3px;
-}
-.nav-sticky.scrolling-active .big-basket-logo i {
-  width: 45px;
-  height: 45px;
-  margin: 0 0 0 0;
-  display: inline-block;
-  background-image: url(https://www.bbassets.com/static/v2530/custPage/build/content/img/bb-icon.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.nav-sticky.scrolling-active .search-bar {
-  bottom: 20px;
-}
-div.empty-divs {
+.shop-on-scroll {
   display: none;
 }
-.scrolling-active div.basket {
-  bottom: 2.5px;
+.scrolling-active .shop-on-scroll {
+  display: flex;
 }
-.scrolling-active div ul.nav-top {
-  display: none;
+
+@media screen and (min-width: 870px) {
+  .scrolling-active > div > div:nth-child(1) > div {
+    align-items: center;
+  }
+  .nav-sticky.scrolling-active .big-basket-logo {
+    position: relative;
+    top: -3px;
+  }
+  .nav-sticky.scrolling-active .big-basket-logo i {
+    width: 45px;
+    height: 45px;
+    margin: 0 0 0 0;
+    display: inline-block;
+    background-image: url(https://www.bbassets.com/static/v2530/custPage/build/content/img/bb-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .nav-sticky.scrolling-active .search-bar {
+    bottom: 20px;
+  }
+  div.empty-divs {
+    display: none;
+  }
+  .scrolling-active div.basket {
+    bottom: 2.5px;
+  }
+  .scrolling-active div ul.nav-top {
+    display: none;
+  }
+  .scrolling-active section.nav-category {
+    border: none;
+    display: none;
+  }
 }
