@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  return <div style={{ width: "100%", height: "1000px" }}>Home</div>;
+};

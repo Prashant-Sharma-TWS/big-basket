@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <Nav>
+      <Nav className="nav-sticky">
         <div>
           <div>
             <div>
@@ -100,3 +100,14 @@ export const Navbar = () => {
     </>
   );
 };
+
+setTimeout(() => {
+  //applying a class to nav after scrolling y-axis
+  window.addEventListener("scroll", () => {
+    var nav = document.querySelector(".nav-sticky");
+    var windowPosition = window.scrollY > 90;
+    console.log("yes", nav);
+
+    nav.classList.toggle("scrolling-active", windowPosition);
+  });
+}, 1000);

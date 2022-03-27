@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   width: 100%;
-  position: sticky;
-  top: 0;
   z-index: 100;
   background-color: #fff;
 
@@ -182,6 +180,11 @@ export const Nav = styled.nav`
     border-color: #f2f2f2;
     cursor: pointer;
 
+    span {
+      .cart-count {
+        display: none;
+      }
+    }
     @media screen and (max-width: 870px) {
       span {
         position: relative;
@@ -313,12 +316,15 @@ export const Nav = styled.nav`
         transform: rotate(-135deg);
       }
 
+      .user-option {
+        display: flex;
+      }
+
       @media screen and (max-width: 870px) {
         .user-option {
           min-width: 100vw;
           top: 30px;
           left: -234%;
-          display: flex;
           z-index: 500;
         }
       }
