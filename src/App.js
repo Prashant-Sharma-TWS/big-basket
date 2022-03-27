@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
-import { Counter } from "./Redux/counter/Counter";
+import { Navbar } from "./Components/Navbar";
 import { Routers } from "./Routers/Routers";
 
 function App() {
   return (
     <div className="App">
       <div>
+        <Navbar />
         <Routers />
-        <Counter />
       </div>
     </div>
   );
