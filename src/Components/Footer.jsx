@@ -47,16 +47,17 @@ export const Footer = () => {
                 </div>
 
                 <div>
+                    <h4>Download Our App</h4>
                     <ul>
-                        <h4>Download Our App</h4>
+                        
                         <a href="https://play.google.com/store/apps/details?id=com.bigbasket.mobileapp" target={"_blank"}><img className={styles.badge} src={playstore} alt="image of google play store" /></a>
                         <a href="https://www.bbassets.com/static/v2530/custPage/build/content/img/Apple-App-store-icon.png" target={"_blank"}  ><img className={styles.badge} src={apple} alt="image of apple store" /></a>
                     </ul>
                 </div>
 
                 <div>
+                    <h4>Get Social With Us</h4>
                     <ul>
-                        <h4>Get Social With Us</h4>
                         <li>
                             <a href="https://www.facebook.com/pages/Bigbasketcom/139311472851666" target={"_blank"}><img className={styles.socialbadge} src={facebook} alt="" /></a>
                             <a href="https://in.pinterest.com/bigbasketcom/" target={"_blank"}><img className={styles.socialbadge} src={pinterest} alt="" /></a>
