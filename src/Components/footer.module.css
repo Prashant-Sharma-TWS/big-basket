@@ -74,16 +74,6 @@
     display: inline-block;
 }
 
-/* .footerSection2 div div:first-child{
-    width: 15%;
-    background-color: black;
-} */
-
-/* .paymentIconDiv{
-    display: flex;
-    flex-direction: row;
-} */
-
 .paymentVisa{
     width: 64px;
 }
