@@ -6,16 +6,26 @@ const productSchema = mongoose.Schema(
         name: {
             type: String,
             trim: true,
-            required: true,
-            maxlength: 32
+            required: true
         },
         description: {
             type: String,
             trim: true,
-            required: true,
-            maxlength: 2000
+            required: true
         },
         price: {
+            type: Number,
+            required: true,
+            maxlength: 32,
+            trim: true
+        },
+        mrp: {
+            type: Number,
+            required: true,
+            maxlength: 32,
+            trim: true
+        },
+        discount: {
             type: Number,
             required: true,
             maxlength: 32,
@@ -35,12 +45,24 @@ const productSchema = mongoose.Schema(
             required: true,
             trim: true
         },
-        sold: {
-            type: Number,
-            default: 0
-        },
         photo: {
             type: String
+        },
+        superSaver: {
+            type: Boolean,
+            default: false
+        },
+        quantityType: {
+            type: String,
+            required: true
+        },
+        season: {
+            type: String,
+            required: true
+        },
+        country: {
+            type: String,
+            required: true
         }
     },
     {
