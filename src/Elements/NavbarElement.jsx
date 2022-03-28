@@ -359,6 +359,7 @@ export const Nav = styled.nav`
       position: absolute;
       top: 27px;
       right: 0;
+      z-index: 1000;
       background-color: #fff;
       border: 1px solid rgba(0, 0, 0, 0.15);
       box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
@@ -504,6 +505,7 @@ export const CategoryDiv = styled.div`
   position: absolute;
   top: ${(props) => props.top};
   left: ${(props) => props.left};
+  z-index: 1000;
   box-shadow: 0 2px 4px 0 #b5b5b5 !important;
   background-color: #fff;
 
