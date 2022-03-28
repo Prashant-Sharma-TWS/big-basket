@@ -18,17 +18,9 @@ const userSchema = mongoose.Schema({
             message: "Please Enter Valid Email"
         }
     },
-    address: {
-        type: String,
-        trim: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    purchases: {
-        type: Array,
-        default: []
+    phone: {
+        type:Number,
+        max: 999999999
     }
 },
     {
