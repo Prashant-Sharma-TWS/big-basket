@@ -9,7 +9,8 @@ export const ViewportSliderElement = styled.div`
 
 export const OfferSection = styled.section`
   .offer-top-margin {
-    margin: 30px 0 0;
+    margin: 30px auto 0;
+    width: 85%;
   }
   h2 {
     color: rgb(68, 68, 68);
@@ -74,7 +75,6 @@ export const OfferSection = styled.section`
         margin-bottom: 5px;
         > img {
           width: 100%;
-          padding: 10px;
         }
       }
     }
