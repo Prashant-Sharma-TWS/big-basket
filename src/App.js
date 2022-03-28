@@ -1,16 +1,16 @@
 import React from "react";
 import "./App.css";
-import { Footer } from "./Components/Footer";
-import { Counter } from "./Redux/counter/Counter";
+import { Navbar } from "./Components/Home/Navbar";
 import { Routers } from "./Routers/Routers";
+import { Footer } from "./Components/Footer";
 
 function App() {
   return (
     <div className="App">
-      <div>
-        {/* <Routers />
-        <Counter /> */}
-        <Footer/>     
+      <div> 
+        <Navbar />
+        <Routers />
+        <Footer/>    
       </div>
     </div>
   );
