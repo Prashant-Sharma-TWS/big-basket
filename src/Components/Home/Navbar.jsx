@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown } from "../Elements/Element";
-import { Nav } from "../Elements/NavbarElement";
+import { ArrowDown } from "../../Elements/Element";
+import { Nav } from "../../Elements/NavbarElement";
+import { Shop, ShopByCategory } from "./ShopByCategory";
 
 export const Navbar = () => {
   const [cart, setCart] = useState(0);
@@ -10,13 +11,19 @@ export const Navbar = () => {
     city: "Bangalore",
     pincode: 560004,
   });
+  const [sidebar, setSidebar] = useState(false);
 
   return (
     <>
-      <Nav>
+      <Nav className="nav-sticky">
         <div>
           <div>
             <div>
+              <div className="hamburger" onClick={() => setSidebar(true)}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
               <div className="user">
                 <i></i>
                 <ul className="user-option">
@@ -34,6 +41,9 @@ export const Navbar = () => {
                 <Link to="/big-basket">
                   <i className="big-basket-logo"></i>
                 </Link>
+              </div>
+              <div className="shop-on-scroll">
+                <Shop />
               </div>
               <div className="location">
                 <i></i>
@@ -96,7 +106,20 @@ export const Navbar = () => {
             </li>
           </ul>
         </div>
+        <div>
+          <ShopByCategory className={sidebar ? "show-sidebar" : ""} />
+        </div>
       </Nav>
     </>
   );
 };
+
+setTimeout(() => {
+  //applying a class to nav after scrolling y-axis
+  window.addEventListener("scroll", () => {
+    var nav = document.querySelector(".nav-sticky");
+    var windowPosition = window.scrollY > 90;
+
+    nav.classList.toggle("scrolling-active", windowPosition);
+  });
+}, 1000);

@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  z-index: 1000;
   background-color: #fff;
 
   > div {
@@ -27,6 +25,10 @@ export const Nav = styled.nav`
       }
     }
 
+    .hamburger {
+      display: none;
+    }
+
     @media screen and (max-width: 870px) {
       width: 100%;
       background-color: #84c225;
@@ -35,13 +37,31 @@ export const Nav = styled.nav`
         flex-direction: column;
 
         > div:nth-child(1) {
-          width: 78%;
-          margin-left: auto;
+          width: 90%;
+          margin: auto;
           justify-content: space-between;
 
           .user,
           .location {
             display: inline-block;
+          }
+          .basket {
+            width: 65px;
+          }
+
+          .hamburger {
+            width: 26px;
+            height: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            span {
+              width: 100%;
+              height: 2px;
+              background-color: white;
+            }
           }
         }
 
@@ -182,6 +202,11 @@ export const Nav = styled.nav`
     border-color: #f2f2f2;
     cursor: pointer;
 
+    span {
+      .cart-count {
+        display: none;
+      }
+    }
     @media screen and (max-width: 870px) {
       span {
         position: relative;
@@ -313,12 +338,15 @@ export const Nav = styled.nav`
         transform: rotate(-135deg);
       }
 
+      .user-option {
+        display: flex;
+      }
+
       @media screen and (max-width: 870px) {
         .user-option {
           min-width: 100vw;
           top: 30px;
           left: -234%;
-          display: flex;
           z-index: 500;
         }
       }
@@ -331,6 +359,7 @@ export const Nav = styled.nav`
       position: absolute;
       top: 27px;
       right: 0;
+      z-index: 1000;
       background-color: #fff;
       border: 1px solid rgba(0, 0, 0, 0.15);
       box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
@@ -343,6 +372,218 @@ export const Nav = styled.nav`
         text-align: left;
         border-bottom: 1px dashed #dedede;
         transition: all 0.3s ease;
+      }
+    }
+  }
+`;
+
+export const ShopByCategorySection = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid #eee;
+
+  @media screen and (max-width: 870px) {
+    position: absolute;
+    flex-direction: column;
+    left: -100%;
+
+    .show-sidebar {
+      left: 0;
+    }
+  }
+
+  > div {
+    font-size: 15px;
+    padding: 8px 6px;
+    line-height: 20px !important;
+  }
+
+  .shop-by-category,
+  .offers,
+  .bb-specialty {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 5px;
+    cursor: pointer;
+  }
+
+  .shop-by-category {
+    position: relative;
+    width: 245px;
+    font-weight: bold;
+    color: white;
+    background-color: #84c225;
+
+    .show-category {
+      display: none;
+      width: 1145px;
+      top: 100%;
+      left: 0;
+    }
+    :hover {
+      .show-category {
+        display: block;
+      }
+    }
+  }
+
+  .offers {
+    color: #666;
+    font-size: 14px;
+    i {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      margin-right: 5px;
+      background-image: url(https://www.bbassets.com/static/v2530/custPage/build/content/img/header.css.svg);
+      background-position: 60.281858250815965% 60.23102310231023%;
+    }
+  }
+
+  .bb-specialty {
+    color: #666;
+    font-size: 14px;
+    i {
+      width: 20.16px;
+      height: 15px;
+      display: inline-block;
+      margin-right: 5px;
+      background-image: url(https://www.bbassets.com/static/v2530/custPage/build/content/img/header.css.svg);
+      background-position: 16.173811611102742% 14.851485148514852%;
+    }
+  }
+
+  .offers,
+  .bb-specialty {
+    :hover {
+      background-color: #74ab21;
+    }
+  }
+`;
+
+export const ShopSection = styled.section`
+  position: relative;
+  top: 5px;
+  left: -120%;
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .favour {
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+  }
+
+  .show-category {
+    width: 1160px;
+    display: none;
+    top: 90%;
+    left: -180%;
+    transition: all 0.5s ease-in-out;
+  }
+  :hover {
+    .show-category {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 870px) {
+    display: none;
+  }
+`;
+
+export const CategoryDiv = styled.div`
+  position: absolute;
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
+  z-index: 1000;
+  box-shadow: 0 2px 4px 0 #b5b5b5 !important;
+  background-color: #fff;
+
+  > .top_category {
+    width: 250px;
+    line-height: 1.5rem;
+    text-align: left;
+    color: #555;
+
+    > li {
+      font-size: 13px;
+      padding: 7px 0 7px 7px;
+      border-bottom: 1px solid #eee;
+
+      :hover {
+        background-color: #eaeaea;
+
+        .sub_category {
+          display: block;
+        }
+      }
+
+      .sub_category,
+      .sub_sub_category,
+      .popular_search {
+        display: none;
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 21%;
+        line-height: 0.8rem;
+        padding: 5px 0 0 12px;
+        background-color: #eaeaea;
+        transition: all 0.3s ease;
+      }
+      .sub_category,
+      .sub_sub_category,
+      .popular_search {
+        > li {
+          font-size: 12px;
+          padding: 7px 0 7px 7px;
+        }
+      }
+      .sub_category {
+        > li {
+          :hover {
+            background-color: white;
+
+            .sub_sub_category,
+            .popular_search {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .sub_sub_category,
+      .popular_search {
+        width: 100%;
+        left: 100%;
+        background-color: white;
+      }
+      .sub_sub_category {
+        > li {
+          :hover {
+            color: #84c225;
+          }
+        }
+      }
+
+      .popular_search {
+        padding-top: 0;
+        left: 200%;
+      }
+      li.popular_search_title {
+        font-size: 15px;
+        color: #84c225;
       }
     }
   }

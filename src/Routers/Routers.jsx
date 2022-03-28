@@ -13,12 +13,7 @@ export const Routers = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cl/:category" element={<CategoryWiseProducts />} />
-        <Route path="/admin" element={<AdminHome />} />
-        <Route path="/admin/users" element={<AdminUsers />} />
-        <Route path="/admin/usercart/:id" element={<AdminUserCart />} />
-        <Route path="/admin/carts" element={<AdminCarts />} />
-
+        <Route path="/big-basket" element={<Home />} />
         <Route path="/*" element={<Error>404 Not Found</Error>} />
       </Routes>
     </>
