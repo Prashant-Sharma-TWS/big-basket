@@ -69,3 +69,35 @@
     width: 100%;
     align-items: center;
 }
+
+.quantitydiv{
+        border: 1px solid #e0e0e0;
+        height: 20px;
+        float: right;
+        display: flex;
+        margin-right: 5rem;
+}
+
+.quantitydiv button{
+    width: 16px;
+    height: 20px;
+    color: #989898;
+    /* float: left; */
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.quantitydiv input{
+    /* float: left; */
+    border: 1px solid #e3e3e3;
+    border-top: 0;
+    border-bottom: 0;
+    width: 24px;
+    height: 21px;
+    background: #fff;
+    color: #000;
+    text-align: center;
+}

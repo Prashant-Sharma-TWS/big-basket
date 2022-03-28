@@ -1,40 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+
 import styles from '../Components/checkout.module.css'
-import { Listitem } from '../Components/Listitem'
+import { CheckoutCards } from '../Components/CheckoutCards'
+import { CheckoutTable } from '../Components/CheckoutTable'
 
 export const Checkout = () => {
-    let list = [
-        {
-            brand: "FRESHO",
-            name: "Bitter Gourd 250 g",
-            mrp: "10.31",
-            price: "8.25",
-            quantity: 3,
-            category: "Fruits & Vegetables"
-        },
-        {
-            brand: "FRESHO",
-            name: "Carrot - Orange 500 g",
-            mrp: "66.88",
-            price: "53.50",
-            quantity: 3,
-            category: "Fruits & Vegetables"
-        }
-    ]
 
+    let list = useSelector(state => state.cart.cart)
     let obj = {}
 
     //sepration of categories
     list.map((item) => {
         if (obj[item.category] === undefined) {
             obj[item.category] = [item]
+            
         }
         else {
             obj[item.category].push(item)
         }
-        item.total = item.quantity * item.price
-        item.saving = (item.quantity * item.mrp) - item.total
+        obj[item.category].total ? obj[item.category].total += item.quantity * item.price : obj[item.category].total = item.quantity * item.price
+        item.subtotal = item.quantity * item.price
+        item.saving = (item.quantity * item.mrp) - item.subtotal
     })
 
     console.log(obj)
@@ -43,29 +30,10 @@ export const Checkout = () => {
         <div className={styles.checkoutdiv}>
             <div className={styles.container}>
                 <div className={styles.heading}>
-                    Your Basket ({list.length} items)
+                    {list.length !== 0? `Your Basket (${list.length} items)` : 'There are no items in your basket.'}
                 </div>
-                <div className={styles.checkoutTable}>
-                    <div className={styles.tableHeading}>
-                        <div className={styles.emptySpace}></div>
-                        <div className={styles.descriptio}>ITEM DESCRIPTION</div>
-                        <div>UNIT PRICE</div>
-                        <div>QUANTITY</div>
-                        <div>SUBTOTAL</div>
-                        <div className={styles.cross}></div>
-                        <div>SAVINGS</div>
-                    </div>
-                    {Object.keys(obj).map(category => {
-                        return (<>
-                            <div className={styles.categoryHeading}>
-                                <Link to={"#"}>{category}</Link>
-                                <span>{obj[category].length} items: Rs <span>123</span> </span>
-                            </div>
-                            {obj[category].map((item) => <Listitem item={item} />)}
-                        </>
-                        )
-                    })}
-                </div>
+                {list.length !== 0 && <CheckoutTable obj={obj}/>}
+                <CheckoutCards obj={obj}/>
             </div>
         </div>
     )
