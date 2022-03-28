@@ -16,8 +16,12 @@ router.get("/", async (req, res) => {
 })
 
 router.get("/cl/:category", async (req, res) => {
+    var q = { category: req.params.category }
+    if (req.query.brand) {
+        q["brand"] = req.query.brand
+    }
     try {
-        const products = await Product.find({ category: req.params.category }).lean().exec()
+        const products = await Product.find(q).lean().exec()
         res.status(200).json(products)
     }
     catch (err) {
@@ -38,8 +42,14 @@ router.get("/:id", async (req, res) => {
 })
 
 router.post("/", uploadSingle("photo"), async (req, res) => {
+    var obj = { ...req.body }
+    if (req.file !== undefined) {
+        console.log("dfd")
+        obj["photo"] = req.file.path
+    }
+
     try {
-        const product = await Product.create({ ...req.body, photo: req.file.path })
+        const product = await Product.create(obj)
         res.status(201).json(product)
     }
     catch (err) {
