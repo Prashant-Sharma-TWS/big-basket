@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
 import { Nav } from "../../Elements/NavbarElement";
 import { Shop, ShopByCategory } from "./ShopByCategory";
 
 export const Navbar = () => {
+  const { isUserLoggedIn } = useSelector((state) => state.auth);
   const [cart, setCart] = useState(0);
   const [user, setUser] = useState("Prashant Sharma");
   const [location, setLocation] = useState({
@@ -89,21 +91,28 @@ export const Navbar = () => {
               </span>
               <ArrowDown top="-3px" color="#4a4a4a" />
             </li>
-            <li className="user">
-              <i></i>
-              <span>{user}</span>
-              <ArrowDown className="arrow-down" top="-3px" color="#4a4a4a" />
-              <ul className="user-option">
-                <li>My Account</li>
-                <li>My Basket</li>
-                <li>My Orders</li>
-                <li>My Membership</li>
-                <li>Wallet</li>
-                <li>Ask Us</li>
-                <li>Customer Service</li>
-                <li>Logout</li>
-              </ul>
-            </li>
+            {isUserLoggedIn ? (
+              <li className="user user-onlogin">
+                <i></i>
+                <span>{user}</span>
+                <ArrowDown className="arrow-down" top="-3px" color="#4a4a4a" />
+                <ul className="user-option">
+                  <li>My Account</li>
+                  <li>My Basket</li>
+                  <li>My Orders</li>
+                  <li>My Membership</li>
+                  <li>Wallet</li>
+                  <li>Ask Us</li>
+                  <li>Customer Service</li>
+                  <li>Logout</li>
+                </ul>
+              </li>
+            ) : (
+              <li className="user">
+                <i></i>
+                <span>Login/Sign Up</span>
+              </li>
+            )}
           </ul>
         </div>
         <div>

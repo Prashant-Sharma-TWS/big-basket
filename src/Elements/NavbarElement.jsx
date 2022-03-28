@@ -320,18 +320,12 @@ export const Nav = styled.nav`
     }
   }
 
-  .user {
-    position: relative;
-
+  .user-onlogin {
     > i {
-      width: 16.85px;
-      height: 14.97px;
-      display: inline-block;
-      background-image: url(https://www.bbassets.com/static/v2530/custPage/build/content/img/header.css.svg);
-      background-position: 80.77331923961296% 79.36961843872733%;
+      background-position: 80.77331923961296% 79.36961843872733% !important;
     }
-
     :hover {
+      color: #4a4a4a !important;
       background-color: #84c225;
       .arrow-down {
         top: 0;
@@ -350,6 +344,22 @@ export const Nav = styled.nav`
           z-index: 500;
         }
       }
+    }
+  }
+
+  .user {
+    position: relative;
+
+    > i {
+      width: 16.85px;
+      height: 14.97px;
+      display: inline-block;
+      background-image: url(https://www.bbassets.com/static/v2530/custPage/build/content/img/header.css.svg);
+      background-position: 78.2883509760042% 76.7543392694314%;
+    }
+
+    :hover {
+      color: #84c225;
     }
 
     .user-option {
