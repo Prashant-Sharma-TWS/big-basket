@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Navbar } from "./Components/Home/Navbar";
 import { Routers } from "./Routers/Routers";
-import { Footer } from "./Components/Footer";
+import { Footer } from "./Components/Home/Footer";
 
 function App() {
   return (
