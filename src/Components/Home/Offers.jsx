@@ -9,7 +9,7 @@ export const Offers = () => {
         <img
           src="https://www.bigbasket.com/media/uploads/banner_images/hp_cmc_hardinsasta_bangalore_400_270322.jpeg"
           alt="offers"
-          width="85%"
+          width="100%"
         />
       </div>
 
