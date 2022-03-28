@@ -75,7 +75,6 @@ export const OfferSection = styled.section`
         margin-bottom: 5px;
         > img {
           width: 100%;
-          padding: 10px;
         }
       }
     }
