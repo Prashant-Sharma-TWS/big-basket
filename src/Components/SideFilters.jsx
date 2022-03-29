@@ -14,11 +14,12 @@ const SideFilters = () => {
   useEffect(() => {});
   return (
     <div className="side-filters">
-      Brand
-      <hr />
       <span>
-        <input type="text" />
+        Brand
+        <hr className="brand-hr" />
       </span>
+      <hr />
+      <input type="text" />
       <br />
       <input
         type="radio"
@@ -62,10 +63,11 @@ const SideFilters = () => {
       <label value="">Catch</label>
       <br />
       <br />
-      Seasonal
+      <span>
+        Seasonal
+        <hr className="season-hr" />
+      </span>
       <hr />
-      <input type="text" />
-      <br />
       <input
         type="radio"
         name="season_filter"
@@ -100,10 +102,11 @@ const SideFilters = () => {
       <label value="">Monsoon</label>
       <br />
       <br />
-      Country Of Origin
+      <span>
+        Country Of Origin
+        <hr className="country-hr" />
+      </span>
       <hr />
-      <input type="text" />
-      <br />
       <input
         type="radio"
         name="country_filter"
