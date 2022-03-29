@@ -4,49 +4,49 @@ import "./allproducts.css";
 const AllProducts = ({ product }) => {
   return (
     <div className="product-display">
-      <div class="save-price">
+      <div className="save-price">
         <input
           type="hidden"
           value="Discount"
           id="snowplow_offer_type_10000266"
-          autocomplete="off"
+          autoComplete="off"
         />
-        <div class="ng-scope">
+        <div className="ng-scope">
           <div>
-            GET <span class="ng-binding">20</span>% OFF
-            <span class="asterisk-icon"></span>
+            GET <span className="ng-binding">{product.discount}</span>% OFF
+            <span className="asterisk-icon"></span>
           </div>
         </div>
       </div>
 
       <div className="pic-brand-name">
-        <img src={product.photo} alt="" />
+        <img src={product.photo[0]} alt="" />
         <div>
           <div>
             <p className="brand">{product.brand}</p>
             <p className="name">{product.name}</p>
           </div>
-          <div className="weight">1 Kg</div>
+          <div className="weight">1 {product.quantityType}</div>
         </div>
       </div>
 
       <div className="price-details">
-        <div qa="price" class="po-markup">
+        <div qa="price" className="po-markup">
           <h5>
             <span>MRP: </span>
           </h5>
           <h4>
-            <span class="mp-price">
-              Rs <span>175</span>
+            <span className="mp-price">
+              Rs <span>{product.mrp} </span>
             </span>
-            <span class="discnt-price">
+            <span className="discnt-price">
               Rs <span>{product.price}</span>
             </span>
           </h4>
         </div>
 
         <div>
-          {product.stock == 0 ? (
+          {product.stock === 0 ? (
             <>
               <br />
               <button className="notify-btn">Notify Me</button>
@@ -64,12 +64,12 @@ const AllProducts = ({ product }) => {
               <br />
 
               <span className="qty-card-span">
-                <button>Qty</button>
+                <button className="btn-qty">Qty</button>
                 <input type="number" defaultValue="1" disabled />
 
                 <button className="add-to-cart-btn">
                   <span>ADD</span>
-                  <span class="bskt-icon"></span>
+                  <span className="bskt-icon"></span>
                 </button>
               </span>
             </>

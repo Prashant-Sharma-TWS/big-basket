@@ -45,9 +45,9 @@ const productSchema = mongoose.Schema(
             required: true,
             trim: true
         },
-        photo: {
+        photo: [{
             type: String
-        },
+        }],
         superSaver: {
             type: Boolean,
             default: false

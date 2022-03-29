@@ -20,8 +20,28 @@ router.get("/cl/:category", async (req, res) => {
     if (req.query.brand) {
         q["brand"] = req.query.brand
     }
+    if (req.query.season) {
+        q["season"] = req.query.season
+    }
+    if (req.query.country) {
+        q["country"] = req.query.country
+    }
+
+    var sortque = {}
+    if (req.query.sort == "priceasc") {
+        sortque = { "price": 1 }
+    }
+    if (req.query.sort == "pricedesc") {
+        sortque = { "price": -1 }
+    }
+    if (req.query.sort == "name") {
+        sortque = { "name": 1 }
+    }
+    if (req.query.sort == "discount") {
+        sortque = { "discount": -1 }
+    }
     try {
-        const products = await Product.find(q).lean().exec()
+        const products = await Product.find(q).sort(sortque).lean().exec()
         res.status(200).json(products)
     }
     catch (err) {
@@ -44,7 +64,6 @@ router.get("/:id", async (req, res) => {
 router.post("/", uploadSingle("photo"), async (req, res) => {
     var obj = { ...req.body }
     if (req.file !== undefined) {
-        console.log("dfd")
         obj["photo"] = req.file.path
     }
 
