@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./sideFilters.css";
+import "../Css/sideFilters.css";
 import { useDispatch } from "react-redux";
 import { set_brand, set_country, set_season } from "../Redux/Filter/actions";
 
