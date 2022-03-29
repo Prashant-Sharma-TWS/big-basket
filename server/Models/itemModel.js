@@ -12,9 +12,9 @@ const itemSchema = mongoose.Schema(
             required: true,
             min: [1, "Quantity can not be less then 1."],
         },
-        cart: {
+        user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "cart"
+            ref: "user"
         }
 
 

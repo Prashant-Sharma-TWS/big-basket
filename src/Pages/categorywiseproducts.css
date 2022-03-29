@@ -2,16 +2,11 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 13px;
 }
 
 .main-holder-inner {
     flex: 4;
-}
-
-.cat-input {
-    display: flex;
-    gap: 50%;
 }
 
 .cat-input #cat {
@@ -19,18 +14,33 @@
     color: #58595B;
     font-size: 24px;
     display: inline-block;
+    text-transform: capitalize;
+}
+
+.cat-input button {
+    padding: 2px 15px 0;
+    float: right;
+    font-size: 12px;
+    border-radius: 4px !important;
+    background: #fff;
+    margin-top: 10px;
+    border: 1px solid #84c225;
+    color: #222;
 }
 
 .cat-input select {
     width: 20%;
-        padding: 2px;
-        height: 25px;
-        border: 1px solid silver;
-        border-radius: 0;
-        box-shadow: none;
-        background: #fff;
-        outline-width: 0.001rem;
-        outline-color: greenyellow;
+    padding: 2px;
+    height: 25px;
+    border: 1px solid silver;
+    border-radius: 0;
+    box-shadow: none;
+    background: #fff;
+    outline-width: 0.001rem;
+    outline-color: greenyellow;
+    color: grey;
+    font-size: small;
+    float: right;
 }
 
 .products-display {
@@ -50,19 +60,31 @@
     .products-display {
         grid-template-columns: repeat(1, 1fr);
     }
+    .cat-input select {
+        display: none;
+    }
+    .cat-input button {
+        display: initial;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .products-display {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cat-input select {
+        display: none;
+    }
+    .cat-input button {
+        display: initial;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .products-display {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -70,6 +92,12 @@
 @media only screen and (min-width: 992px) {
     .products-display {
         grid-template-columns: repeat(3, 1fr);
+    }
+    .cat-input select {
+        display: initial;
+    }
+    .cat-input button {
+        display: none;
     }
 }
 
