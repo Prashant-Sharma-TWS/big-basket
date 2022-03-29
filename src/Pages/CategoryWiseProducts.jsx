@@ -30,7 +30,7 @@ const CategoryWiseProducts = () => {
   }, [brand, season, country, sort]);
 
   return (
-    <Container className="cont">
+    <Container className="cont" maxWidth="lg" fixed>
       <div className="main-holder">
         <SideFilters />
 
@@ -51,6 +51,18 @@ const CategoryWiseProducts = () => {
               <option value="discount">% Off - High to Low</option>
             </select>
           </div>
+          <span className="truck-cat">
+            <img
+              width="25"
+              height="25"
+              className="truck"
+              src="https://www.bbassets.com/static/v2531/custPage/build/content/img/standard-del.svg"
+              alt="not found"
+            />
+            ALL PRODUCTS
+          </span>
+          <hr className="truck-cat-hr" />
+
           <hr />
           <div className="products-display">
             {products.map((product) => {

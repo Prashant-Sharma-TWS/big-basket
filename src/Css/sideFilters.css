@@ -2,8 +2,11 @@
     line-height: initial !important;
 }
 
+
 .side-filters hr {
     width: 90%;
+    margin: 5px 0 !important;
+    margin-top: 0px !important;
 }
 
 .side-filters label {
@@ -12,14 +15,33 @@
     color: #666666;
 }
 
+.side-filters span hr {
+    margin: 0;
+    color: #84C225;
+    margin-bottom: 0 !important;
+    height: 2px;
+    background-color: #84C225;
+}
+
+.side-filters span .brand-hr {
+    width: 45px;
+}
+.side-filters span .season-hr {
+    width: 75px;
+}
+.side-filters span .country-hr {
+    width: 130px;
+}
+
 .side-filters input[type=text] {
     border: 1px solid silver;
+    margin-top: 5px;
     width: 90%;
     background-color: #FFFFFF;
     font-size: 13px;
     padding: 3px 5px;
-    margin-bottom: 7px;
-    
+    margin-bottom: 10px;
+    color: #58595B;
 }
 
 .side-filters input[type=text]:focus {
@@ -36,7 +58,6 @@
      width: 15px;
      height: 15px;
      accent-color: green;
-     padding-bottom: ;
 }
 
 .side-filters input[type=radio]:checked {
