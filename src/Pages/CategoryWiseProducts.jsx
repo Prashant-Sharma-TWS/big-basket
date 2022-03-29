@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import AllProducts from "../Components/AllProducts";
 import SideFilters from "../Components/SideFilters";
 import { set_sort } from "../Redux/Filter/actions";
-import "./categorywiseproducts.css";
+import "../Css/categorywiseproducts.css";
 
 const CategoryWiseProducts = () => {
   const dispatch = useDispatch();
