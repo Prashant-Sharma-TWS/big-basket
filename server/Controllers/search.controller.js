@@ -5,7 +5,7 @@ router.post("/", async (req, res) => {
   try {
     const { searchTerm } = req.body;
     const products = await Product.find();
-
+    console.log(searchTerm);
     const results = products.filter((product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
