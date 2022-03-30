@@ -7,7 +7,7 @@ import SideFilters from "../Components/Products/SideFilters";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { set_sort } from "../Redux/Filter/actions";
-import "../Css/categorywiseproducts.css";
+import "../Components/Css/categorywiseproducts.css";
 
 const CategoryWiseProducts = () => {
   const dispatch = useDispatch();
@@ -23,15 +23,13 @@ const CategoryWiseProducts = () => {
   useEffect(() => {
     axios
       .get(
-        `${pathname}?brand=${brand}&season=${season}&country=${country}&sort=${sort}`
+        `/products/${pathname}?brand=${brand}&season=${season}&country=${country}&sort=${sort}`
       )
       .then((data) => {
         setProducts(data.data);
-        console.log(data.data);
       });
   }, [pathname, brand, season, country, sort]);
 
-  console.log(products);
   return (
     <Container className="cont" maxWidth="lg" fixed>
       <div className="main-holder">
