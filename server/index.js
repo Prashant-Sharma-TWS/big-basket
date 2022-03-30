@@ -7,7 +7,6 @@ const cors = require("cors");
 // controllers require
 const userController = require("./Controllers/userController");
 const productController = require("./Controllers/productController");
-const cartController = require("./Controllers/cartController");
 const itemController = require("./Controllers/itemController");
 
 const app = express();
@@ -16,7 +15,6 @@ app.use(cors());
 
 app.use("/users", userController);
 app.use("/cl", productController);
-app.use("/carts", cartController);
 app.use("/items", itemController);
 
 app.listen(process.env.BACKEND_PORT, async () => {

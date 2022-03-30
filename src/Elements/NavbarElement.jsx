@@ -6,6 +6,7 @@ export const Nav = styled.nav`
   background-color: #fff;
 
   > div {
+    max-width: 1170px;
     width: 85%;
     margin: auto;
     position: relative;

@@ -23,9 +23,14 @@ li {
   list-style-type: none;
 }
 
-/* .App {
-  text-align: center;
-} */
+.App {
+  width: 100%;
+}
+.App > div {
+  max-width: 1170px;
+  margin: auto;
+  background-color: #fff;
+}
 
 .show {
   display: flex;
