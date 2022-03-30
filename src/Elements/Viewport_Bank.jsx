@@ -7,18 +7,26 @@ export const ViewportSliderElement = styled.div`
   }
 `;
 
+export const ViewportBottomElement = styled.div`
+  width: 85%;
+  margin: 20px auto 0;
+  @media screen and (max-width: 870px) {
+    width: 80%;
+  }
+`;
+
 export const OfferSection = styled.section`
   .offer-top-margin {
-    margin: 30px auto 0;
     width: 85%;
+    margin: 30px auto 0;
   }
   h2 {
+    width: 85%;
     color: rgb(68, 68, 68);
     text-align: center;
     font-size: 22px;
     font-weight: 500;
     padding: 40px 0 8px;
-    width: 85%;
     margin: 5px auto 15px;
     border-bottom: 1px solid #eaeaea;
   }
@@ -29,6 +37,10 @@ export const OfferSection = styled.section`
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 870px) {
+      width: 90%;
+    }
 
     > div {
       width: 273px;
@@ -90,6 +102,9 @@ export const OfferSection = styled.section`
     width: 85%;
     margin: 50px auto 0;
     border: 1px solid #e1e1e1;
+    @media screen and (max-width: 870px) {
+      margin: 50px 30px 0;
+    }
 
     a.carousel-control-prev,
     a.carousel-control-next {
@@ -120,5 +135,8 @@ export const OfferSection = styled.section`
 
   #carouselExampleControls.featured-slide {
     margin: 0 auto;
+    @media screen and (max-width: 870px) {
+      margin: 0 30px;
+    }
   }
 `;

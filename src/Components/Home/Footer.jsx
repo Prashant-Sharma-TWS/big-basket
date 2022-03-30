@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./footer.module.css";
+import styles from "../Css/footer.module.css";
 import apple from "../../Images/Apple-App-store-icon.png";
 import playstore from "../../Images/Google-App-store-icon.png";
 import facebook from "../../Images/facebook.png";

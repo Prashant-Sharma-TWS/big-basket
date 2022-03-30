@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { ViewportSliderElement } from "../../Elements/Viewport_Bank";
+import {
+  ViewportBottomElement,
+  ViewportSliderElement,
+} from "../../Elements/Viewport_Bank";
 
 export class ViewportSlider extends Component {
   render() {
@@ -37,37 +40,43 @@ export class ViewportSlider extends Component {
           <div>
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/HP_EMF_M_Weekdayblore_460_040322.jpg"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
           <div>
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_fom_m_bbpl-staples_460_220322_Bangalore.jpg"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
           <div>
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_f_v_m_ugadi_460-250322.jpg"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
           <div>
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_b_h_m_Dairy(MilkShake)_460-250322.jpg"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
           <div>
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_m_Happychef_460-250322.jpg"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
           <div>
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_m_Pantryessentials_460-250322.jpg"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
         </Slider>
@@ -106,46 +115,52 @@ export class ViewportBottomSlider extends Component {
       ],
     };
     return (
-      <div style={{ width: "85%", margin: "20px auto" }}>
+      <ViewportBottomElement>
         <Slider {...settings}>
-          <div>
+          <div className="down-to-view-div">
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_topstrip_m_emf_190x60_250322.png"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
-          <div>
+          <div className="down-to-view-div">
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_topstrip_m_bbstar_190x60_250322.png"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
-          <div>
+          <div className="down-to-view-div">
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_topstrip_m_precautionary_190x60_250322.png"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
-          <div>
+          <div className="down-to-view-div">
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_topstrip_m_faq_190x60_250322.png"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
-          <div>
+          <div className="down-to-view-div">
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_topstrip_m_combostore_190x60_250322.png"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
-          <div>
+          <div className="down-to-view-div">
             <img
               src="https://www.bigbasket.com/media/uploads/banner_images/hp_topstrip_m_dealsoftheweek_190x60_250322.png"
-              alt="tax-img" width="180px"
+              alt="tax-img"
+              width="180px"
             />
           </div>
         </Slider>
-      </div>
+      </ViewportBottomElement>
     );
   }
 }
