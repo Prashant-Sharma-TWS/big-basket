@@ -1,0 +1,19 @@
+.container{
+    background-color: whitesmoke;
+}
+
+.basketItems{
+
+}
+
+.basketDropdown{
+    width: 10rem;
+    height: 5rem;
+    background-color: black;
+    display: none;
+}
+
+.basketDiv:hover .basketDropdown{
+    display: block;
+    position: relative;
+}
