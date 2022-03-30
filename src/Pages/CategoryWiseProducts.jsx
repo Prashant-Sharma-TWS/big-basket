@@ -27,7 +27,6 @@ const CategoryWiseProducts = () => {
       )
       .then((data) => {
         setProducts(data.data);
-        console.log(data.data);
       });
   }, [pathname, brand, season, country, sort]);
 
