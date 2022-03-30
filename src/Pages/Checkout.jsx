@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import styles from '../Components/checkout.module.css'
 import { CheckoutCards } from '../Components/CheckoutCards'
 import { CheckoutTable } from '../Components/CheckoutTable'
+import { deleteItem } from '../Redux/cart/CartAction'
 
 export const Checkout = () => {
-
+    let dispatch = useDispatch();
     let list = useSelector(state => state.cart.cart)
     let obj = {}
 
     //sepration of categories
     list.map((item) => {
+        if(item.quantity === 0){
+            dispatch(deleteItem({id:item.id}))
+        }
         if (obj[item.category] === undefined) {
             obj[item.category] = [item]
             
@@ -22,9 +26,9 @@ export const Checkout = () => {
         obj[item.category].total ? obj[item.category].total += item.quantity * item.price : obj[item.category].total = item.quantity * item.price
         item.subtotal = item.quantity * item.price
         item.saving = (item.quantity * item.mrp) - item.subtotal
+        obj.totalSaving ? obj.totalSaving += item.saving : obj.totalSaving = item.saving
     })
 
-    console.log(obj)
 
     return (
         <div className={styles.checkoutdiv}>

@@ -1,4 +1,4 @@
-import { SET_CART, SET_QUANTITY } from "./CartActionTypes"
+import { EMPTY_CART, REMOVE_ITEM, SET_CART, SET_QUANTITY } from "./CartActionTypes"
 
 
 export const addQuantity = (payload) =>{
@@ -8,25 +8,21 @@ export const addQuantity = (payload) =>{
     }
 }
 
-export const setCart = () =>{
-    // let payload = [
-    //     {
-    //         brand: "FRESHO",
-    //         name: "Bitter Gourd 250 g",
-    //         mrp: "10.31",
-    //         price: "8.25",
-    //         quantity: 3,
-    //         category: "Fruits & Vegetables"
-    //     },
-    //     {
-    //         brand: "FRESHO",
-    //         name: "Carrot - Orange 500 g",
-    //         mrp: "66.88",
-    //         price: "53.50",
-    //         quantity: 3,
-    //         category: "Fruits & Vegetables"
-    //     }
-    // ]
+export const deleteItem = (payload) =>{
+    return{
+        type:REMOVE_ITEM,
+        payload
+    }
+}
+
+export const emptyCart = () =>{
+    return{
+        type:EMPTY_CART,
+        payload:{message:"emptying the cart"}
+    }
+}
+
+export const setCart = (payload) =>{
     return{
         type:SET_CART,
         payload

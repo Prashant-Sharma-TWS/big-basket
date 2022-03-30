@@ -1,4 +1,4 @@
-import { SET_QUANTITY } from "./CartActionTypes"
+import { EMPTY_CART, REMOVE_ITEM, SET_QUANTITY } from "./CartActionTypes"
 
 const initialState = {
     cart:[
@@ -26,15 +26,30 @@ const initialState = {
 
 
 export const CartReducer = (state = initialState,{type,payload}) =>{
+    
     switch (type){
         case SET_QUANTITY:{
-            state.cart.map(item =>{
-                if(item.id === payload.id){
-                    item.quantity = payload.quantity
-                }
-            })
-            return{
-                state
+
+            return {
+                ...state,
+                cart: state.cart.map(item =>{
+                    if(item.id === payload.id){
+                        item.quantity = payload.quantity
+                    }
+                    return item
+                })
+            }
+        }
+        case REMOVE_ITEM:{
+            return {
+                ...state,
+                cart:state.cart.filter(item => item.id !== payload.id)
+            }
+        }
+        case EMPTY_CART:{
+            return {
+                ...state,
+                cart:[]
             }
         }
         default:{
