@@ -386,6 +386,77 @@ export const Nav = styled.nav`
       }
     }
   }
+
+  .search-item-list {
+    width: 100%;
+    height: 367px;
+    padding: 0 5px;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid rgb(0, 0, 0, 0.3);
+    overflow-y: scroll;
+
+    li,
+    button,
+    .search-result-right,
+    .search-result-left {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .search-result-left {
+      width: 50%;
+      justify-content: start;
+    }
+    .search-result-right {
+      width: 40%;
+    }
+
+    li {
+      padding: 8px 10px;
+      font-size: 11px;
+      color: rgb(0, 0, 0, 0.6);
+      border-bottom: 1px solid rgb(0, 0, 0, 0.3);
+
+      .image {
+        max-width: 40px;
+        img {
+          width: 100%;
+        }
+      }
+      .name {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        span:nth-child(2) {
+          font-size: 11px;
+          font-weight: 700;
+          color: rgb(0, 0, 0, 0.7);
+        }
+      }
+      .cart-btn {
+        button {
+          padding: 5px 8px;
+          background-color: #ecf26f;
+          border: 1px solid rgb(0, 0, 0, 0.5);
+          border-radius: 4px;
+
+          i {
+            width: 15px;
+            height: 10px;
+            margin-left: 2px;
+            display: inline-block;
+            background-image: url(https://www.bbassets.com/static/v2531/custPage/build/content/img/checkout-small-bucket-icon.png);
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const ShopByCategorySection = styled.section`

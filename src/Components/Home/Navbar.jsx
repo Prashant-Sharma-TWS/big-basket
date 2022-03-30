@@ -14,8 +14,23 @@ export const Navbar = () => {
     city: "Bangalore",
     pincode: 560004,
   });
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchData, setSearchData] = useState([]);
   const [sidebar, setSidebar] = useState(false);
   const [isSigning, setIsSigning] = useState(false);
+
+  const handleSearch = function (e) {
+    setSearchTerm(e.target.value);
+    fetch("http://localhost:8000/searchterm", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ searchTerm }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((results) => setSearchData(results.results));
+  };
 
   return (
     <>
@@ -53,10 +68,17 @@ export const Navbar = () => {
                 <i></i>
               </div>
               <div className="search-bar big-screen">
-                <input type="text" placeholder="Search for Products.." />
+                <input
+                  type="text"
+                  placeholder="Search for Products.."
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  onKeyUp={handleSearch}
+                />
                 <button type="submit">
                   <i className="search-icon"></i>
                 </button>
+                {searchTerm && <SearchItemList itemList={searchData} />}
               </div>
               <div className="empty-divs"></div>
               <div className="empty-divs"></div>
@@ -135,3 +157,35 @@ setTimeout(() => {
     nav.classList.toggle("scrolling-active", windowPosition);
   });
 }, 1000);
+
+const SearchItemList = ({ itemList }) => {
+  return (
+    <>
+      <ul className="search-item-list">
+        {itemList.map((item) => (
+          <li key={item._id}>
+            <div className="search-result-left">
+              <div className="image">
+                <img src={item.photo[0]} alt={item.name} />
+              </div>
+              <div className="name">
+                <span>{item.brand}</span>
+                <span>{item.name}</span>
+              </div>
+            </div>
+            <div className="search-result-right">
+              <div className="curr-qty">5 {item.quantityType}</div>
+              <div className="price">Rs. {item.price * 5}</div>
+              <div className="qty">1 qty</div>
+              <div className="cart-btn">
+                <button>
+                  Add<i></i>
+                </button>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
