@@ -99,10 +99,17 @@ export const Navbar = () => {
               </div>
             </div>
             <div className="search-bar small-screen">
-              <input type="text" placeholder="Search for Products.." />
+              <input
+                type="text"
+                placeholder="Search for Products.."
+                value={searchTerm}
+                onChange={handleSearch}
+                onKeyUp={handleSearch}
+              />
               <button type="submit">
                 <i className="search-icon"></i>
               </button>
+              {searchTerm && <SearchItemList itemList={searchData} />}
             </div>
           </div>
           <ul className="nav-top">
