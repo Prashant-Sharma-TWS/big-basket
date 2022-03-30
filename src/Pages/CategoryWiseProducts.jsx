@@ -23,7 +23,7 @@ const CategoryWiseProducts = () => {
   useEffect(() => {
     axios
       .get(
-        `${pathname}?brand=${brand}&season=${season}&country=${country}&sort=${sort}`
+        `/products/${pathname}?brand=${brand}&season=${season}&country=${country}&sort=${sort}`
       )
       .then((data) => {
         setProducts(data.data);
@@ -31,7 +31,6 @@ const CategoryWiseProducts = () => {
       });
   }, [pathname, brand, season, country, sort]);
 
-  console.log(products);
   return (
     <Container className="cont" maxWidth="lg" fixed>
       <div className="main-holder">
