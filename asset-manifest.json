@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/big-basket/static/css/main.b09cfb19.css",
-    "main.js": "/big-basket/static/js/main.75036b2a.js",
+    "main.js": "/big-basket/static/js/main.680536ff.js",
     "static/media/mobikwik.png": "/big-basket/static/media/mobikwik.5953b9bbecb835b3da2f.png",
     "static/media/logo-american-express-icon-text-word-symbol-graphics-transparent-png-203306.png": "/big-basket/static/media/logo-american-express-icon-text-word-symbol-graphics-transparent-png-203306.301bc8151fef91a7bac8.png",
     "static/media/Rupay.png": "/big-basket/static/media/Rupay.33dc0ac1cc3e0fc3673a.png",
@@ -13,10 +13,10 @@
     "static/media/MasterCard_Logo.svg": "/big-basket/static/media/MasterCard_Logo.9ceea7ca5d8665e4dd52f08598efe933.svg",
     "index.html": "/big-basket/index.html",
     "main.b09cfb19.css.map": "/big-basket/static/css/main.b09cfb19.css.map",
-    "main.75036b2a.js.map": "/big-basket/static/js/main.75036b2a.js.map"
+    "main.680536ff.js.map": "/big-basket/static/js/main.680536ff.js.map"
   },
   "entrypoints": [
     "static/css/main.b09cfb19.css",
-    "static/js/main.75036b2a.js"
+    "static/js/main.680536ff.js"
   ]
 }
