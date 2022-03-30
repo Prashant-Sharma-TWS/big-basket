@@ -853,4 +853,28 @@ export const SigninSection = styled.section`
       color: #518ef8;
     }
   }
+
+  .otp {
+    font-size: 14px;
+  }
+  .otp + div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: rgb(0,0,0,0.7);
+
+    button {
+      width: 80px;
+      font-size: 13px;
+      margin-left: 10px;
+      color: #979797;
+      background-color: transparent;
+      border: 1px solid rgb(0,0,0,0.3);
+      border-radius: 5px;
+      padding: 4px 8px;
+      cursor: pointer;
+      outline: none;
+    }
+  }
 `;

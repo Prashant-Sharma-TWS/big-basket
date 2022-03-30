@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
 import { Nav } from "../../Elements/NavbarElement";
+import { logoutRequest, logoutSuccess } from "../../Redux/Auth/auth.actions";
 import { Shop, ShopByCategory } from "./ShopByCategory";
 import { SignIn } from "./Signin";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
   const { isUserLoggedIn } = useSelector((state) => state.auth);
   const [cart, setCart] = useState(0);
   const [user, setUser] = useState("Prashant Sharma");
@@ -128,7 +130,14 @@ export const Navbar = () => {
                   <li>Wallet</li>
                   <li>Ask Us</li>
                   <li>Customer Service</li>
-                  <li>Logout</li>
+                  <li
+                    onClick={() => {
+                      dispatch(logoutRequest());
+                      dispatch(logoutSuccess());
+                    }}
+                  >
+                    Logout
+                  </li>
                 </ul>
               </li>
             ) : (
