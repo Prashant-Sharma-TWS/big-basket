@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:category", async (req, res) => {
+router.get("/cl/:category", async (req, res) => {
   var q = { category: req.params.category };
   if (req.query.brand) {
     q["brand"] = req.query.brand;
