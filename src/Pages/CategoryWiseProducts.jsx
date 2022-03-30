@@ -7,7 +7,7 @@ import SideFilters from "../Components/Products/SideFilters";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { set_sort } from "../Redux/Filter/actions";
-import "../Css/categorywiseproducts.css";
+import "../Components/Css/categorywiseproducts.css";
 
 const CategoryWiseProducts = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,6 @@ const CategoryWiseProducts = () => {
       )
       .then((data) => {
         setProducts(data.data);
-        console.log(data.data);
       });
   }, [pathname, brand, season, country, sort]);
 
