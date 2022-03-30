@@ -4,11 +4,6 @@ const router = express.Router();
 const Product = require("../Models/productModel");
 const uploadSingle = require("../Middlewares/upload");
 
-(async function () {
-  const products = await Product.find();
-  console.log(products);
-})();
-
 router.get("/", async (req, res) => {
   try {
     const products = await Product.find().lean().exec();
@@ -23,8 +18,28 @@ router.get("/:category", async (req, res) => {
   if (req.query.brand) {
     q["brand"] = req.query.brand;
   }
+  if (req.query.season) {
+    q["season"] = req.query.season;
+  }
+  if (req.query.country) {
+    q["country"] = req.query.country;
+  }
+
+  var sortque = {};
+  if (req.query.sort === "priceasc") {
+    sortque = { price: 1 };
+  }
+  if (req.query.sort === "pricedesc") {
+    sortque = { price: -1 };
+  }
+  if (req.query.sort === "name") {
+    sortque = { name: 1 };
+  }
+  if (req.query.sort === "discount") {
+    sortque = { discount: -1 };
+  }
   try {
-    const products = await Product.find(q).lean().exec();
+    const products = await Product.find(q).sort(sortque).lean().exec();
     res.status(200).json(products);
   } catch (err) {
     res.status(400).json(err.message);
@@ -47,7 +62,6 @@ router.post("/", uploadSingle("photo"), async (req, res) => {
     console.log("dfd");
     obj["photo"] = req.file.path;
   }
-
   try {
     const product = await Product.create(obj);
     res.status(201).json(product);
@@ -69,7 +83,7 @@ router.patch("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const product = await Product.findByIdAndDelete(req.params.id);
+    await Product.findByIdAndDelete(req.params.id);
     res.status(201).send("successfully deleted");
   } catch (err) {
     res.status(400).json(err.message);

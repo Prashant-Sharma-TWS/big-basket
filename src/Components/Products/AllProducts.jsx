@@ -1,5 +1,5 @@
 import React from "react";
-import "./allproducts.css";
+import "../Css/allproducts.css";
 
 const AllProducts = ({ product }) => {
   return (
@@ -13,7 +13,7 @@ const AllProducts = ({ product }) => {
         />
         <div className="ng-scope">
           <div>
-            GET <span className="ng-binding">20</span>% OFF
+            GET <span className="ng-binding">{product.discount}</span>% OFF
             <span className="asterisk-icon"></span>
           </div>
         </div>
@@ -26,7 +26,7 @@ const AllProducts = ({ product }) => {
             <p className="brand">{product.brand}</p>
             <p className="name">{product.name}</p>
           </div>
-          <div className="weight">1 Kg</div>
+          <div className="weight">1 {product.quantityType}</div>
         </div>
       </div>
 
@@ -37,7 +37,7 @@ const AllProducts = ({ product }) => {
           </h5>
           <h4>
             <span className="mp-price">
-              Rs <span>175</span>
+              Rs <span>{product.mrp} </span>
             </span>
             <span className="discnt-price">
               Rs <span>{product.price}</span>
@@ -64,7 +64,7 @@ const AllProducts = ({ product }) => {
               <br />
 
               <span className="qty-card-span">
-                <button>Qty</button>
+                <button className="btn-qty">Qty</button>
                 <input type="number" defaultValue="1" disabled />
 
                 <button className="add-to-cart-btn">

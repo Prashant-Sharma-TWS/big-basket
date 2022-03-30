@@ -44,9 +44,11 @@ const productSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
-    photo: {
-      type: String,
-    },
+    photo: [
+      {
+        type: String,
+      },
+    ],
     superSaver: {
       type: Boolean,
       default: false,
