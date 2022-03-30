@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
 import {
   CategoryDiv,
@@ -7,22 +8,45 @@ import {
 } from "../../Elements/NavbarElement";
 import categoryData from "../../category.json";
 
-export const ShopByCategory = () => {
+export const ShopByCategory = ({ sidebar, setSidebar }) => {
   return (
-    <ShopByCategorySection className="nav-category cats">
-      <div className="shop-by-category">
-        <span>SHOP BY CATEGORY</span>
-        <ArrowDown top="-3px" />
-        <TopCategory categoryData={categoryData} />
-      </div>
-      <div className="offers">
-        <i></i>
-        <span>OFFERS</span>
-      </div>
-      <div className="bb-specialty">
-        <i></i>
-        <span>BB SPECIALTY</span>
-      </div>
+    <ShopByCategorySection
+      left={sidebar ? "0%" : "-100%"}
+      className="nav-category cats"
+    >
+      {sidebar && (
+        <>
+          <div className="on-sidebar-show">
+            <Link to="/big-basket">HOME</Link>
+            <div className="close-modal" onClick={() => setSidebar(!sidebar)}>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div>SHOP BY CATEGORY</div>
+          <div>OFFERS</div>
+          <div>BB EXPRESS</div>
+          <div>BB SPECIALITY STORES</div>
+          <div>MORE SHOPS</div>
+        </>
+      )}
+      {!sidebar && (
+        <>
+          <div className="shop-by-category">
+            <span>SHOP BY CATEGORY</span>
+            <ArrowDown top="-3px" />
+            <TopCategory categoryData={categoryData} />
+          </div>
+          <div className="offers">
+            <i></i>
+            <span>OFFERS</span>
+          </div>
+          <div className="bb-specialty">
+            <i></i>
+            <span>BB SPECIALTY</span>
+          </div>
+        </>
+      )}
     </ShopByCategorySection>
   );
 };
@@ -43,13 +67,23 @@ export const Shop = () => {
 };
 
 const TopCategory = ({ categoryData }) => {
+  const defaultCategory = () => {
+    const parent = document.querySelectorAll(".top_category_item");
+    console.log(parent);
+  };
+
+  useEffect(() => {
+    defaultCategory();
+  }, []);
+
   return (
     <CategoryDiv className="show-category">
       <ul className="top_category">
         {categoryData.topcats.map((topItem, index) => (
           <li className="top_category_item" key={topItem.top_category.name}>
-            {topItem.top_category.name}
-            {/* {index == 0 && <SubCategory subItems={topItem.sub_cats} />} */}
+            <Link to={topItem.top_category.url}>
+              <span>{topItem.top_category.name}</span>
+            </Link>
             <SubCategory subItems={topItem.sub_cats} />
           </li>
         ))}
@@ -61,10 +95,9 @@ const TopCategory = ({ categoryData }) => {
 const SubCategory = ({ subItems }) => {
   return (
     <ul className="sub_category">
-      {subItems.map((subItem, index) => (
+      {subItems.map((subItem) => (
         <li className="sub_category_item" key={subItem.sub_category[0]}>
           {subItem.sub_category[0]}
-          {/* {index == 0 && <SubSubCategory subSubItems={subItem.cats} />} */}
           <SubSubCategory subSubItems={subItem.cats} />
           <PopularSearchTerms PopularSearchItems={subItem.search_term} />
         </li>

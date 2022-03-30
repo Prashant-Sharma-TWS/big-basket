@@ -394,13 +394,69 @@ export const ShopByCategorySection = styled.section`
   align-items: center;
   border: 1px solid #eee;
 
+  .on-sidebar-show {
+    display: none;
+  }
+
   @media screen and (max-width: 870px) {
+    width: 70%;
+    height: 100vh;
     position: absolute;
     flex-direction: column;
-    left: -100%;
+    align-items: start;
+    top: -76px;
+    left: ${(props) => props.left};
+    z-index: 12000;
+    background-color: #fff;
+    transition: all 0.3s ease;
 
-    .show-sidebar {
-      left: 0;
+    > div {
+      width: 100%;
+      font-size: 12px;
+      font-weight: 500;
+      border-bottom: 1px solid #dedede;
+    }
+
+    .on-sidebar-show {
+      width: 100%;
+      position: relative;
+      display: inline-block;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      padding: 8px 10px;
+      color: white;
+      background-color: #84c225;
+
+      a {
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+      }
+    }
+
+    .close-modal {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      position: relative;
+      background-color: rgb(255, 255, 255, 0.7);
+      border-radius: 50%;
+    }
+    .close-modal span {
+      width: 2px;
+      height: 20px;
+      position: absolute;
+      top: 4px;
+      right: 13px;
+      background-color: #84c225;
+    }
+    .close-modal span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+    .close-modal span:nth-child(2) {
+      transform: rotate(-45deg);
     }
   }
 
@@ -530,6 +586,15 @@ export const CategoryDiv = styled.div`
       padding: 7px 0 7px 7px;
       border-bottom: 1px solid #eee;
 
+      a {
+        text-decoration: none;
+      }
+      span {
+        width: 100%;
+        display: inline-block;
+        color: #555;
+      }
+
       :hover {
         background-color: #eaeaea;
 
@@ -595,6 +660,125 @@ export const CategoryDiv = styled.div`
         font-size: 15px;
         color: #84c225;
       }
+    }
+  }
+`;
+
+export const SigninSection = styled.section`
+  .sign-in-show {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 0.3);
+    z-index: 1100;
+  }
+  .sign-in-hide {
+    display: none;
+  }
+  .form-container {
+    width: 355px;
+    min-height: 510px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    position: relative;
+    top: 11.5%;
+    left: 5%;
+    padding: 30px 30px 10px;
+    background: #fff;
+    border: 1px solid #f2f2f2;
+    transition: max-height 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    box-shadow: 0 0 36px 0 rgb(141 135 135 / 58%);
+  }
+  .form-container .close-modal {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+  }
+  .form-container .close-modal span {
+    width: 2px;
+    height: 20px;
+    position: absolute;
+    right: 8px;
+    background-color: #263858;
+  }
+  .form-container .close-modal span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .form-container .close-modal span:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+  h6,
+  div,
+  button,
+  p,
+  input {
+    width: 100%;
+  }
+  h6 {
+    color: #84c225;
+    font-size: 16px;
+    text-align: center;
+    line-height: 19px;
+    font-weight: 600;
+    text-align: center;
+  }
+  input {
+    position: relative;
+    padding: 8px 0 0;
+    margin-bottom: 30px;
+    font-size: 14px;
+    opacity: 0.5;
+    color: #444;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #dedede;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    :focus {
+      outline: none;
+      opacity: 1;
+    }
+  }
+  .login-with-email,
+  .continue {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 295px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    border: 1px solid #666666;
+    bottom: 126px !important;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+  }
+  .login-with-email {
+    color: #333;
+    background-color: #fff;
+  }
+  .continue {
+    color: #fff;
+    background: #84c225;
+  }
+  p {
+    color: #979797;
+    font-size: 10px;
+    letter-spacing: -0.22px;
+    padding-right: 22px;
+    text-align: center;
+    b {
+      color: #518ef8;
     }
   }
 `;

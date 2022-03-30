@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
 import { Nav } from "../../Elements/NavbarElement";
 import { Shop, ShopByCategory } from "./ShopByCategory";
+import { SignIn } from "./Signin";
 
 export const Navbar = () => {
   const { isUserLoggedIn } = useSelector((state) => state.auth);
@@ -14,6 +15,7 @@ export const Navbar = () => {
     pincode: 560004,
   });
   const [sidebar, setSidebar] = useState(false);
+  const [isSigning, setIsSigning] = useState(false);
 
   return (
     <>
@@ -21,12 +23,12 @@ export const Navbar = () => {
         <div>
           <div>
             <div>
-              <div className="hamburger" onClick={() => setSidebar(true)}>
+              <div className="hamburger" onClick={() => setSidebar(!sidebar)}>
                 <span></span>
                 <span></span>
                 <span></span>
               </div>
-              <div className="user">
+              <div className="user" onClick={() => setIsSigning(!isSigning)}>
                 <i></i>
                 <ul className="user-option">
                   <li>My Account</li>
@@ -108,7 +110,7 @@ export const Navbar = () => {
                 </ul>
               </li>
             ) : (
-              <li className="user">
+              <li className="user" onClick={() => setIsSigning(!isSigning)}>
                 <i></i>
                 <span>Login/Sign Up</span>
               </li>
@@ -116,8 +118,9 @@ export const Navbar = () => {
           </ul>
         </div>
         <div>
-          <ShopByCategory className={sidebar ? "show-sidebar" : ""} />
+          <ShopByCategory sidebar={sidebar} setSidebar={setSidebar} />
         </div>
+        <SignIn isSigning={isSigning} setIsSigning={setIsSigning} />
       </Nav>
     </>
   );

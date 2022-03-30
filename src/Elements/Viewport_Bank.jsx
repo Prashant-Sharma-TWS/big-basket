@@ -33,9 +33,9 @@ export const OfferSection = styled.section`
     > div {
       width: 273px;
       border: 1px solid #e1e1e1;
+      margin-bottom: 10px;
       @media screen and (max-width: 870px) {
         width: 48%;
-        margin-bottom: 10px;
       }
 
       > img {
