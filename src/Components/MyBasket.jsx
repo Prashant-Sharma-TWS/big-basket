@@ -1,71 +1,110 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 // import * as React from 'react';
-import Popover from '@mui/material/Popover';
+// import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
-import { BasketItems } from './BasketItems';
+import { BasketItems } from './BasketItem';
 import styles from './Css/basket.module.css'
+
+import React, { useState, useRef } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Popover } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import { BasketList } from './BasketList';
+import { useNavigate } from 'react-router-dom';
 
-export const MyBasket = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [cart, setCart] = useState(0);
-    let items = useSelector(state=> state)
-    console.log(items)
+const useStyles = makeStyles(theme => ({
+  popover: {
+    pointerEvents: 'none',
+  },
+  popoverContent: {
+    pointerEvents: 'auto',
+  }
+}));
 
-    const handlePopoverOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+export const MyBasket = ({ loading, login, wrong, clearWrongLogin }) => {
+  const [openedPopover, setOpenedPopover] = useState(false)
+  const popoverAnchor = useRef(null);
+  const cart = useSelector(state=>state.cart.cart.length)
+  const navigate = useNavigate();
 
-    const handlePopoverClose = () => {
-        setAnchorEl(null);
-    };
+  const popoverEnter = ({ currentTarget }) => {
+    setOpenedPopover(true)
+  };
 
-    const open = Boolean(anchorEl);
+  const popoverLeave = ({ currentTarget }) => {
+    setOpenedPopover(false)
+  };
 
-    return (
+  const classes = useStyles();
+
+return (
+    <div>
+         <span
+          ref={popoverAnchor}
+          aria-owns="mouse-over-popover"
+          aria-haspopup="true"
+          onMouseEnter={popoverEnter}
+          onMouseLeave={popoverLeave}
+        >
+            <div className={styles.basketDiv}>
+             <div className="basket" onClick={()=> navigate("/checkout")}>
+                 <span>
+                     <i className="basket-image"></i>
+                     <b className="cart-count">{cart}</b>
+                 </span>
+                 <div>
+                     <span className="my-basket">My Basket</span>
+                     <span className="cart-value">
+                         {cart}
+                         <span>items</span>
+                     </span>
+                 </div>
+             </div>
+         </div>
+        </span>
+        <Popover
+        id="mouse-over-popover"
+        className={classes.popover}
+        classes={{
+          paper: classes.popoverContent,
+        }}
+        open={openedPopover}
+        anchorEl={popoverAnchor.current}
+        anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+        PaperProps={{onMouseEnter: popoverEnter, onMouseLeave: popoverLeave}}
+      >
         <div>
-            <Typography
-                aria-owns={open ? 'mouse-over-popover' : undefined}
-                aria-haspopup="true"
-                onMouseEnter={handlePopoverOpen}
-                onMouseLeave={handlePopoverClose}
-            >
-                <div className="basket" >
-                    <span>
-                        <i className="basket-image"></i>
-                        <b className="cart-count">{cart}</b>
-                    </span>
-                    <div>
-                        <span className="my-basket">My Basket</span>
-                        <span className="cart-value">
-                            {cart}
-                            <span>items</span>
-                        </span>
-                    </div>
-                </div>
-            </Typography>
-            <Popover
-                id="mouse-over-popover"
-                sx={{
-                    pointerEvents: 'none',
-                }}
-                open={open}
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                }}
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                }}
-                onClose={handlePopoverClose}
-                disableRestoreFocus
-            >
-                <Typography sx={{ p: 1 }}>
-                    <BasketItems />
-                </Typography>
-            </Popover>
+         <BasketList/>
         </div>
-    );
-}
+      </Popover>
+    </div>
+  );
+};
+
+// export const MyBasket = () => {
+//     const [cart, setCart] = useState(0);
+//     return (
+//         <div className={styles.basketDiv}>
+//             <div className="basket" >
+//                 <span>
+//                     <i className="basket-image"></i>
+//                     <b className="cart-count">{cart}</b>
+//                 </span>
+//                 <div>
+//                     <span className="my-basket">My Basket</span>
+//                     <span className="cart-value">
+//                         {cart}
+//                         <span>items</span>
+//                     </span>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }

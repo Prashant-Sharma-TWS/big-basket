@@ -1,11 +1,13 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { emptyCart } from '../Redux/cart/CartAction';
 import styles from './checkoutcard.module.css'
 
 export const CheckoutCards = ({ obj }) => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     let subtotal = 0;
     let categories = Object.keys(obj)
@@ -21,7 +23,10 @@ export const CheckoutCards = ({ obj }) => {
         <div className={styles.container}>
             <div className={styles.buttondiv}>
                 {categories.length !== 0 ? <button className={styles.emptybutton} onClick={handleEmptyCart}>EMPTY BASKET</button> : null}
-                <button>CONTINUE SHOPPING</button>
+                <button onClick={()=> {
+                    navigate('/')
+                    window.scrollTo(0, 0);
+                    }}>CONTINUE SHOPPING</button>
             </div>
             <div>
                 {categories.length !== 0 ?
