@@ -69,17 +69,6 @@ export const Shop = () => {
 const TopCategory = ({ categoryData }) => {
   const [openDefault, setOpenDefault] = useState(true);
 
-  const defaultCategory = () => {
-    const parent = document.querySelectorAll(".top_category_item");
-
-    console.log(parent[0].children[1]);
-    parent[0].children[1].classList.add("open-default");
-  };
-
-  useEffect(() => {
-    defaultCategory();
-  }, []);
-
   return (
     <CategoryDiv className="show-category">
       <ul className="top_category">

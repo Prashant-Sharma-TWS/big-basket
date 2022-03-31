@@ -139,4 +139,37 @@ export const OfferSection = styled.section`
       margin: 0 30px;
     }
   }
+
+  ul.best-sellers {
+    width: 85%;
+    min-height: 470px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    // overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    li.best-seller-product {
+      min-width: 220px;
+      width: 220px;
+      max-height: 450px;
+      margin: 0 4.5px;
+      border: 1px solid #f2f2f2;
+      background: #fff;
+    }
+
+    .product-display {
+      height: 100%;
+
+      .name {
+        min-height: 30px !important;
+      }
+
+      .price-details {
+        min-height: 90px;
+      }
+    }
+  }
 `;

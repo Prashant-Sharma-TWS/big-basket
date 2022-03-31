@@ -1,8 +1,18 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { ArrowDown } from "../../Elements/Element";
 import { OfferSection } from "../../Elements/Viewport_Bank";
+import AllProducts from "../Products/AllProducts";
 
 export const Offers = () => {
+  const [sellers, setSellers] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/products/sellers`).then((data) => {
+      setSellers(data.data);
+    });
+  }, []);
+
   return (
     <OfferSection>
       <div className="offer-top-margin">
@@ -22,6 +32,13 @@ export const Offers = () => {
       />
 
       <h2>Best Sellers</h2>
+      <ul className="best-sellers">
+        {sellers.map((product) => (
+          <li className="best-seller-product" key={product._id}>
+            <AllProducts product={product} />
+          </li>
+        ))}
+      </ul>
 
       <h2>Most Popular</h2>
       <Wrapper
