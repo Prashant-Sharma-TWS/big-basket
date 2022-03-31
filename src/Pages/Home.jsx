@@ -1,7 +1,16 @@
-import React from 'react'
+import React from "react";
+import { Offers } from "../Components/Home/Offers";
+import {
+  ViewportBottomSlider,
+  ViewportSlider,
+} from "../Components/Home/ViewportSlider";
 
 export const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <ViewportSlider />
+      <ViewportBottomSlider />
+      <Offers />
+    </>
+  );
+};
