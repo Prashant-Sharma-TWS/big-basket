@@ -11,6 +11,7 @@ export const Routers = () => {
         <Route path="/" element={<Home />} />
         <Route path="/big-basket" element={<Home />} />
         <Route path="/cl/:category" element={<CategoryWiseProducts />} />
+        <Route path="/cl/*" element={<Error>404 Not Found</Error>} />
         <Route path="/*" element={<Error>404 Not Found</Error>} />
       </Routes>
     </>

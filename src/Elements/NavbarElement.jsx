@@ -557,7 +557,7 @@ export const ShopByCategorySection = styled.section`
     background-color: #84c225;
 
     .show-category {
-      display: none;
+      // display: none;
       width: 1145px;
       top: 100%;
       left: 0;
@@ -646,6 +646,10 @@ export const CategoryDiv = styled.div`
   z-index: 1000;
   box-shadow: 0 2px 4px 0 #b5b5b5 !important;
   background-color: #fff;
+
+  .open-default {
+    display: block !important;
+  }
 
   > .top_category {
     width: 250px;
@@ -862,7 +866,7 @@ export const SigninSection = styled.section`
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    color: rgb(0,0,0,0.7);
+    color: rgb(0, 0, 0, 0.7);
 
     button {
       width: 80px;
@@ -870,7 +874,7 @@ export const SigninSection = styled.section`
       margin-left: 10px;
       color: #979797;
       background-color: transparent;
-      border: 1px solid rgb(0,0,0,0.3);
+      border: 1px solid rgb(0, 0, 0, 0.3);
       border-radius: 5px;
       padding: 4px 8px;
       cursor: pointer;
