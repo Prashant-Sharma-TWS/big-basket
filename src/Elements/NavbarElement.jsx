@@ -557,7 +557,7 @@ export const ShopByCategorySection = styled.section`
     background-color: #84c225;
 
     .show-category {
-      // display: none;
+      display: none;
       width: 1145px;
       top: 100%;
       left: 0;
