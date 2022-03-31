@@ -1,0 +1,130 @@
+.mainDiv{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    width: 80%;
+    margin: auto;
+    font-family: sans-serif;
+}
+.left{
+    width: 20%;
+    /* border: 1px solid black; */
+}
+.right{
+    width: 80%;
+    display: flex;
+    /* border: 1px solid black; */
+}
+.subImagesMainiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    /* border: 1px solid red; */
+}
+.subImg{
+    width: 12%;
+    border: 1px solid grey;
+    height: 50px;
+    margin: 2px;
+}
+.rightKaLeftMain{
+    /* border: 1px solid blue; */
+    width: 50%;
+    padding: 2%;
+}
+.posterImg{
+    width: 100%;
+}
+.rightKaRightMain{
+    /* border: 1px solid green; */
+    width: 50%;
+}
+.ratingDiv{
+    display: flex;
+    /* border: 1px solid red; */
+}
+.rating{
+    padding: 0px;
+    margin: 0px;
+    color: #689F38;
+    background-color: #c4d8b1b9;
+    width: 7%;
+    font-size: small;
+    padding: 0.5%;
+    margin-left: 5px;
+    /* border: 1px solid red; */
+}
+.ratingCount{
+    margin-left: 8px;
+    /* border: 1px solid red; */
+}
+.basketButtonGroupMainDiv{
+    display: flex;
+    margin-top: 10px;
+    /* border: 1px solid red; */
+}
+.basketButtonGroupMainDiv > input{
+    width: 7%;
+    height: 35px;
+    margin: 5px;
+    text-align: center;
+    outline: unset;
+    border: unset;
+    border: 1px solid rgba(128, 128, 128, 0.87);
+    border-radius: 2px;
+}
+.basketButtonGroupMainDiv > input:hover{
+    border: 1px solid rgba(0, 0, 0, 0.678);
+}
+.addtobasketBtn{
+    padding: 0px;
+    margin: 0px;
+    width: 33%;
+    height: 40px;
+    margin: 5px;
+    /* border: 1px solid red; */
+    border-radius: 2px;
+    background-color: #84c225;
+    color: #fff;
+    font-weight: 600;
+    outline: unset;
+    border: unset;
+}
+.addtobasketBtn:hover{
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+    cursor: pointer;
+    border: 1px solid #84c225;
+}
+.basketButtonGroupMainDiv > .saveBtn{
+    padding: 0px;
+    margin: 0px;
+    width: 21%;
+    height: 40px;
+    margin: 5px;
+    background-color: unset;
+    border: 1px solid grey;
+    color: grey;
+    border-radius: 2px;
+}
+.saveBtn:hover{
+    /* box-shadow: 0px 1px #888888b0; */
+    /* box-shadow: inset 0 0 15px #efefef; */
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+    cursor: pointer;
+}
+.deleverytruckdiv{
+    display: flex;
+    width: 100%;
+    height: 35px;
+    margin-top: 25px;
+    /* border: 1px solid red; */
+}
+.deleverytimep{
+    color: grey;
+    font-size: 13px;
+}
+.packSize{
+    color: rgba(0, 0, 0, 0.712);
+    font-size: 15px;
+}
