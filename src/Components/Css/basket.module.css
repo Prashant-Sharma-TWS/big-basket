@@ -98,6 +98,7 @@
     height: 2rem;
     align-items: center;
     width: 19em;
+    cursor: pointer;
 }
 
 .listItems{

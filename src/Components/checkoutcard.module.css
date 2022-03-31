@@ -165,3 +165,65 @@
 .warning p{
     margin: 2px 9px;
 }
+
+.modelDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.modelDiv .okButton{
+    background: linear-gradient(to bottom,#fee67c 0,#f2cb76 100%);
+    padding: 10px 15px;
+    box-shadow: 2px 2px 0 #eaeaea;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-right: 30px;
+    color: #666;
+    font: 600 12px/12px 'Roboto Slab',serif;
+}
+
+.modelDiv .cancelButton{
+    border-radius: 4px;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 2px #ccc;
+    background: linear-gradient(180deg,#fff 0,#ebedea 99%) repeat scroll 0 0 transparent;
+    border: 1px solid #e4e4e4;
+    color: #555;
+    font: 400 12px Roboto Slab,serif;
+    padding: 10px 15px;
+    margin-left: -10px;
+}
+
+.modelDiv .cancelButton:hover{
+    background: linear-gradient(0deg,#fff 0,#ebedea 99%) repeat scroll 0 0 transparent;
+}
+
+.modelDiv .okButton:hover{
+    background: linear-gradient(to top,#fee67c 0,#f2cb76 100%);
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttondiv{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .checkoutcardDiv{
+        display: flex;
+        align-self: center;
+        margin-top: 1rem;
+    }
+}

@@ -1,11 +1,13 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { deleteItem } from '../Redux/cart/CartAction';
 import { BasketItem } from './BasketItem';
 import styles from './Css/basket.module.css'
 
 export const BasketList = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector(state => state.cart.cart);
   let subtotal = 0
   cart.map(item => {
@@ -41,7 +43,7 @@ export const BasketList = () => {
                 <span>**</span>
               </div>
               </section>
-              <div className={styles.buttonDiv}>
+              <div className={styles.buttonDiv} onClick={()=>navigate("/checkout")}>
                 View Basket & Checkout
               </div>
             </div>

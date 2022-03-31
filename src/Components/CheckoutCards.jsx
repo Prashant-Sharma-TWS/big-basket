@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { emptyCart } from '../Redux/cart/CartAction';
 import styles from './checkoutcard.module.css'
+import { EmptyBasketModel } from './EmptyBasketModel';
 
 export const CheckoutCards = ({ obj }) => {
 
@@ -15,20 +15,17 @@ export const CheckoutCards = ({ obj }) => {
         if (typeof (obj[key]) === typeof ([])) subtotal += obj[key].total
     })
 
-    const handleEmptyCart = () => {
-        dispatch(emptyCart())
-    }
 
     return (
         <div className={styles.container}>
             <div className={styles.buttondiv}>
-                {categories.length !== 0 ? <button className={styles.emptybutton} onClick={handleEmptyCart}>EMPTY BASKET</button> : null}
+                {categories.length !== 0 ? <EmptyBasketModel/> : null}
                 <button onClick={()=> {
                     navigate('/')
                     window.scrollTo(0, 0);
                     }}>CONTINUE SHOPPING</button>
             </div>
-            <div>
+            <div className={styles.checkoutcardDiv}>
                 {categories.length !== 0 ?
                     <div className={styles.checkoutcard}>
                         <div className={styles.chargesDiv}>
