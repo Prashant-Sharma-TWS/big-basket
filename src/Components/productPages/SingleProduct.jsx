@@ -30,17 +30,10 @@ export const SingleProduct = () => {
       setqtype(data.data.quantityType);
     });
   }, [id]);
-  
-  // useEffect(() => {
-  //   axios.get(`/products/${id}`).then((data) => {
-  //     setProduct(data.data);
-  //   });
-  // }, [userid, id]);
 
   return (
     <div>
       <div className={style.mainDiv}>
-
         <div className={style.left}>
           <SideFilters />
         </div>
@@ -202,10 +195,7 @@ export const SingleProduct = () => {
             </div>
           </div>
         </div>
-
       </div>
-
-
       <Accordion className={style.ouracoordian} >
           <AccordionSummary
             className="accordionSum"
@@ -256,8 +246,6 @@ export const SingleProduct = () => {
             <p>Thank you for clicking</p>
           </AccordionDetails>
         </Accordion>
-
-
     </div>
   );
 };
