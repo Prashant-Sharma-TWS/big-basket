@@ -266,6 +266,11 @@ border-radius: 2px;
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    .product-display {
+        width: 95%;
+        border: 1px solid silver;
+        row-gap: 0 !important;
+    }
     .pic-brand-name {
         flex-direction: row;
         gap: 20px;
@@ -291,7 +296,11 @@ border-radius: 2px;
         width: 100%;
     }
     
-    
+    .add-to-cart-btn-1 {
+        margin: 0 !important;
+        padding-left: 10vw !important;
+        padding-right: 10vw !important;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

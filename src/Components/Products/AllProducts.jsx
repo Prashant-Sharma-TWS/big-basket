@@ -15,13 +15,13 @@ const AllProducts = ({ product }) => {
   const [open, setOpen] = useState(false);
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart.cart)
+  const cart = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
     axios.get(`/items?user=${userid}&product=${product._id}`).then((data) => {
       setProducts(data.data);
     });
-  }, [up,cart]);
+  }, [up, cart]);
 
   const updateQuantity = (id, newQty) => {
     if (newQty === 0) {
@@ -55,14 +55,14 @@ const AllProducts = ({ product }) => {
     }
   };
 
-  useEffect(()=>{
-    const fetchcart = async() =>{
-      const res = await fetch('/items/?user=62435193c1dab43bbce3f6eb')
+  useEffect(() => {
+    const fetchcart = async () => {
+      const res = await fetch("/items/?user=62435193c1dab43bbce3f6eb");
       const json = await res.json();
-      dispatch(setCart(json))
-    }
-    fetchcart()
-  },[addtocart])
+      dispatch(setCart(json));
+    };
+    fetchcart();
+  }, [addtocart]);
 
   return (
     <div className="product-display">
