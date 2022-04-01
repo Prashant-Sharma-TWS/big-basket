@@ -98,7 +98,8 @@ export const OfferSection = styled.section`
     }
   }
 
-  #carouselExampleControls {
+  #carouselExampleControls,
+  #carouselExample2Controls {
     width: 85%;
     margin: 50px auto 0;
     border: 1px solid #e1e1e1;
@@ -133,7 +134,7 @@ export const OfferSection = styled.section`
     }
   }
 
-  #carouselExampleControls.featured-slide {
+  #carouselExample2Controls.featured-slide {
     margin: 0 auto;
     @media screen and (max-width: 870px) {
       margin: 0 30px;

@@ -190,7 +190,7 @@ export const Offers = () => {
 
       <h2>Featured Recipes</h2>
       <div
-        id="carouselExampleControls"
+        id="carouselExample2Controls"
         className="carousel slide featured-slide"
         data-ride="carousel"
       >
@@ -233,7 +233,7 @@ export const Offers = () => {
         </div>
         <a
           className="carousel-control-prev"
-          href="#carouselExampleControls"
+          href="#carouselExample2Controls"
           role="button"
           data-slide="prev"
         >
@@ -244,7 +244,7 @@ export const Offers = () => {
         </a>
         <a
           className="carousel-control-next"
-          href="#carouselExampleControls"
+          href="#carouselExample2Controls"
           role="button"
           data-slide="next"
         >
