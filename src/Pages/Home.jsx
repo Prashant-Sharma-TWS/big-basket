@@ -1,5 +1,5 @@
 import React from "react";
-import { Offers } from "../Components/Home/Offers";
+// import { Offers } from "../Components/Home/Offers";
 import {
   ViewportBottomSlider,
   ViewportSlider,
@@ -10,7 +10,7 @@ export const Home = () => {
     <>
       <ViewportSlider />
       <ViewportBottomSlider />
-      <Offers />
+      {/* <Offers /> */}
     </>
   );
 };

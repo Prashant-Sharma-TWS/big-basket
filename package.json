@@ -33,7 +33,7 @@
     "validator": "^13.7.0"
   },
   "scripts": {
-    "serve": "nodemon server",
+    "serve": "node server",
     "dev": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
