@@ -3,23 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
 import { Nav } from "../../Elements/NavbarElement";
+import { MyBasket } from "../MyBasket";
 import { logoutRequest, logoutSuccess } from "../../Redux/Auth/auth.actions";
 import { Shop, ShopByCategory } from "./ShopByCategory";
 import { SignIn } from "./Signin";
 import axios from "axios";
-import { getValue } from "../../Utils/localStorage";
 import { Alert, Snackbar } from "@mui/material";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { isUserLoggedIn } = useSelector((state) => state.auth);
   const { data } = useSelector((state) => state.user);
-  // const [cart, setCart] = useState(0);
-  // const [user, setUser] = useState("Prashant Sharma");
-  // const [location, setLocation] = useState({
-  //   city: "Bangalore",
-  //   pincode: 560004,
-  // });
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState([]);
   const [sidebar, setSidebar] = useState(false);
@@ -90,19 +84,7 @@ export const Navbar = () => {
               </div>
               <div className="empty-divs"></div>
               <div className="empty-divs"></div>
-              <div className="basket">
-                <span>
-                  <i className="basket-image"></i>
-                  <b className="cart-count">{data.cartValue}</b>
-                </span>
-                <div>
-                  <span className="my-basket">My Basket</span>
-                  <span className="cart-value">
-                    {data.cartValue}
-                    <span>items</span>
-                  </span>
-                </div>
-              </div>
+              <MyBasket />
             </div>
             <div className="search-bar small-screen">
               <input
@@ -183,16 +165,16 @@ setTimeout(() => {
 }, 1000);
 
 const SearchItemList = ({ itemList, data }) => {
-  const [userid, setUserId] = useState(getValue("userId"));
   const [open, setOpen] = useState(false);
   const [up, setUp] = useState(true);
+  console.log(data);
 
   const addtocart = (id) => {
     axios
       .post("http://localhost:8000/items", {
         product: id,
         quantity: 1,
-        user: userid,
+        user: data.id,
       })
       .then(() => setOpen(true))
       .catch((err) => alert(err.message));

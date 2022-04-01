@@ -16,7 +16,6 @@ const initialState = {
       city: "Bangalore",
       pincode: 560004,
     },
-    cartValue: 0,
   },
   isLoading: false,
   error: false,
