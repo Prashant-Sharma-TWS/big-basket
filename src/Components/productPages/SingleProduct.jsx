@@ -196,6 +196,7 @@ export const SingleProduct = () => {
           </div>
         </div>
       </div>
+
       <Accordion className={style.ouracoordian} >
           <AccordionSummary
             className="accordionSum"
