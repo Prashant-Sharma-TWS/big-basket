@@ -17,6 +17,7 @@ export const SingleProduct = () => {
   const [image, setImage] = useState("");
   const [images, setImages] = useState([]);
 
+
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
@@ -198,57 +199,51 @@ export const SingleProduct = () => {
       </div>
       
       <div className={style.testaccordian}>
-      <Accordion className={style.ouracoordian} >
+      <Accordion className={style.ouracoordian} style={{"boxShadow": "none" , "borderTop": "1px solid grey" , "borderRadius" : "unset"}}>
           <AccordionSummary
             className="accordionSum"
             expandIcon={
               <ExpandMoreIcon style={{ fontSize: 45, color: "#666666" }} />
             }
           >
-            More Details
+            About the Product
           </AccordionSummary>
           <AccordionDetails className="accordionDet">
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
-          </AccordionDetails>
-        </Accordion>
-        </div>
-        <div className={style.testaccordian}>
-      <Accordion className={style.ouracoordian} >
-          <AccordionSummary
-            className="accordionSum"
-            expandIcon={
-              <ExpandMoreIcon style={{ fontSize: 45, color: "#666666" }} />
-            }
-          >
-            More Details
-          </AccordionSummary>
-          <AccordionDetails className="accordionDet">
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
+            <p>{product.description}</p>
           </AccordionDetails>
         </Accordion>
         </div>
 
         <div className={style.testaccordian}>
-      <Accordion className={style.ouracoordian} >
+      <Accordion className={style.ouracoordian} style={{"boxShadow": "none" , "borderTop": "1px solid grey" , "borderRadius" : "unset"}}>
           <AccordionSummary
             className="accordionSum"
             expandIcon={
               <ExpandMoreIcon style={{ fontSize: 45, color: "#666666" }} />
             }
           >
-            More Details
+            Benefits
           </AccordionSummary>
           <AccordionDetails className="accordionDet">
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
-            <p>Thank you for clicking</p>
+          <p>{product.description}
+          <p>&#10004; Just buy our product and be healthy and safe .</p>
+          </p>
+          </AccordionDetails>
+        </Accordion>
+        </div>
+
+        <div className={style.testaccordian}>
+      <Accordion className={style.ouracoordian} style={{"boxShadow": "none" , "borderTop": "1px solid grey" , "borderRadius" : "unset"}}>
+          <AccordionSummary
+            className="accordionSum"
+            expandIcon={
+              <ExpandMoreIcon style={{ fontSize: 45, color: "#666666" }} />
+            }
+          >
+            Storage and Uses
+          </AccordionSummary>
+          <AccordionDetails className="accordionDet">
+          <p>{product.description}</p>
           </AccordionDetails>
         </Accordion>
         </div>
