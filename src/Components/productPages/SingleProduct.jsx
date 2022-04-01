@@ -4,6 +4,13 @@ import { useParams } from "react-router-dom";
 import SideFilters from "../Products/SideFilters";
 import style from "./singleprod.module.css";
 
+
+
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 export const SingleProduct = () => {
   const [value, setValue] = useState(1);
 
@@ -24,11 +31,11 @@ export const SingleProduct = () => {
     });
   }, [id]);
   
-  useEffect(() => {
-    axios.get(`/products/${id}`).then((data) => {
-      setProduct(data.data);
-    });
-  }, [userid, id]);
+  // useEffect(() => {
+  //   axios.get(`/products/${id}`).then((data) => {
+  //     setProduct(data.data);
+  //   });
+  // }, [userid, id]);
 
   return (
     <div>
@@ -199,7 +206,24 @@ export const SingleProduct = () => {
       </div>
 
 
-      
+      <Accordion className={style.ouracoordian}>
+          <AccordionSummary
+            className="accordionSum"
+            expandIcon={
+              <ExpandMoreIcon style={{ fontSize: 45, color: "#666666" }} />
+            }
+          >
+            More Details
+          </AccordionSummary>
+          <AccordionDetails className="accordionDet">
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+          </AccordionDetails>
+        </Accordion>
+
+
     </div>
   );
 };
