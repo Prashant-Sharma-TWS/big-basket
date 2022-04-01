@@ -23,6 +23,12 @@ export const SingleProduct = () => {
       setqtype(data.data.quantityType);
     });
   }, [id]);
+  
+  useEffect(() => {
+    axios.get(`/products/${id}`).then((data) => {
+      setProduct(data.data);
+    });
+  }, [userid, id]);
 
   return (
     <div>
