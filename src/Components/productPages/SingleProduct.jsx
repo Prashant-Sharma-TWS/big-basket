@@ -40,7 +40,7 @@ export const SingleProduct = () => {
 
         <div className={style.right}>
           <div className={style.rightKaLeftMain}>
-            <img src={image} className={style.posterImg} />
+            <img src={image ? image : images[0]} className={style.posterImg} />
 
             <div className={style.subImagesMainiv}>
               <img
