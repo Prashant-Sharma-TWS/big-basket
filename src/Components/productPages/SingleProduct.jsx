@@ -206,7 +206,41 @@ export const SingleProduct = () => {
       </div>
 
 
-      <Accordion className={style.ouracoordian}>
+      <Accordion className={style.ouracoordian} >
+          <AccordionSummary
+            className="accordionSum"
+            expandIcon={
+              <ExpandMoreIcon style={{ fontSize: 45, color: "#666666" }} />
+            }
+          >
+            More Details
+          </AccordionSummary>
+          <AccordionDetails className="accordionDet">
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion className={style.ouracoordian} >
+          <AccordionSummary
+            className="accordionSum"
+            expandIcon={
+              <ExpandMoreIcon style={{ fontSize: 45, color: "#666666" }} />
+            }
+          >
+            More Details
+          </AccordionSummary>
+          <AccordionDetails className="accordionDet">
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+            <p>Thank you for clicking</p>
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion className={style.ouracoordian} >
           <AccordionSummary
             className="accordionSum"
             expandIcon={
