@@ -196,7 +196,8 @@ export const SingleProduct = () => {
           </div>
         </div>
       </div>
-
+      
+      <div className={style.testaccordian}>
       <Accordion className={style.ouracoordian} >
           <AccordionSummary
             className="accordionSum"
@@ -213,8 +214,9 @@ export const SingleProduct = () => {
             <p>Thank you for clicking</p>
           </AccordionDetails>
         </Accordion>
-
-        <Accordion className={style.ouracoordian} >
+        </div>
+        <div className={style.testaccordian}>
+      <Accordion className={style.ouracoordian} >
           <AccordionSummary
             className="accordionSum"
             expandIcon={
@@ -230,8 +232,10 @@ export const SingleProduct = () => {
             <p>Thank you for clicking</p>
           </AccordionDetails>
         </Accordion>
+        </div>
 
-        <Accordion className={style.ouracoordian} >
+        <div className={style.testaccordian}>
+      <Accordion className={style.ouracoordian} >
           <AccordionSummary
             className="accordionSum"
             expandIcon={
@@ -247,6 +251,7 @@ export const SingleProduct = () => {
             <p>Thank you for clicking</p>
           </AccordionDetails>
         </Accordion>
+        </div>
     </div>
   );
 };
