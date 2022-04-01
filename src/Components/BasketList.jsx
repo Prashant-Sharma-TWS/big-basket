@@ -9,9 +9,10 @@ export const BasketList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector(state => state.cart.cart);
+  
   let subtotal = 0
   cart.map(item => {
-    subtotal += item.quantity * item.price
+    subtotal += item.quantity * item.product.price
   })
 
   return (

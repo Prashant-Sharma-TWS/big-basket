@@ -16,16 +16,16 @@ export const Checkout = () => {
         if(item.quantity === 0){
             dispatch(deleteItem({id:item.id}))
         }
-        if (obj[item.category] === undefined) {
-            obj[item.category] = [item]
+        if (obj[item.product.category] === undefined) {
+            obj[item.product.category] = [item]
             
         }
         else {
-            obj[item.category].push(item)
+            obj[item.product.category].push(item)
         }
-        obj[item.category].total ? obj[item.category].total += item.quantity * item.price : obj[item.category].total = item.quantity * item.price
-        item.subtotal = item.quantity * item.price
-        item.saving = (item.quantity * item.mrp) - item.subtotal
+        obj[item.product.category].total ? obj[item.product.category].total += item.quantity * item.product.price : obj[item.product.category].total = item.quantity * item.product.price
+        item.subtotal = item.quantity * item.product.price
+        item.saving = (item.quantity * item.product.mrp) - item.subtotal
         obj.totalSaving ? obj.totalSaving += item.saving : obj.totalSaving = item.saving
     })
 

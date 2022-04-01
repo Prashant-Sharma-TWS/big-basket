@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import { emptyCart } from '../Redux/cart/CartAction';
 import styles from './checkoutcard.module.css'
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 const style = {
     position: 'absolute',
@@ -28,7 +29,8 @@ export const EmptyBasketModel = () => {
     const dispatch = useDispatch();
 
     const handleEmptyCart = () => {
-        dispatch(emptyCart())
+        // dispatch(emptyCart())
+        axios.delete(`/items/deleteall?user=62435193c1dab43bbce3f6eb`).then().catch(e => console.log(e.message))
     }
 
     return (
