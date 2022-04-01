@@ -1,13 +1,12 @@
 import { Alert, Snackbar } from "@mui/material";
 import axios from "axios";
+import { getValue } from "../../Utils/localStorage";
 
 import React, { useState, useEffect } from "react";
 import "../Css/allproducts.css";
 
 const AllProducts = ({ product }) => {
-  const [userid, setUserId] = useState(
-    JSON.parse(localStorage.getItem("userId")) || "12345"
-  );
+  const [userid, setUserId] = useState(getValue("userId"));
   const vertical = "top";
   const horizontal = "center";
   const [up, setUp] = useState(true);

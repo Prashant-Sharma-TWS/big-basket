@@ -6,6 +6,9 @@ import { Nav } from "../../Elements/NavbarElement";
 import { logoutRequest, logoutSuccess } from "../../Redux/Auth/auth.actions";
 import { Shop, ShopByCategory } from "./ShopByCategory";
 import { SignIn } from "./Signin";
+import axios from "axios";
+import { getValue } from "../../Utils/localStorage";
+import { Alert, Snackbar } from "@mui/material";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
@@ -175,8 +178,38 @@ setTimeout(() => {
 }, 1000);
 
 const SearchItemList = ({ itemList }) => {
+  const [userid, setUserId] = useState(getValue("userId"));
+  const [open, setOpen] = useState(false);
+  const [up, setUp] = useState(true);
+
+  const addtocart = (id) => {
+    axios
+      .post("http://localhost:8000/items", {
+        product: id,
+        quantity: 1,
+        user: userid,
+      })
+      .then(() => setOpen(true))
+      .catch((err) => alert(err.message));
+    setUp(!up);
+  };
+
   return (
     <>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setOpen(false)}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          Product Successfully Added To Cart
+        </Alert>
+      </Snackbar>
       <ul className="search-item-list">
         {itemList.map((item) => (
           <li key={item._id}>
@@ -194,7 +227,7 @@ const SearchItemList = ({ itemList }) => {
               <div className="price">Rs. {item.price * 5}</div>
               <div className="qty">1 qty</div>
               <div className="cart-btn">
-                <button>
+                <button onClick={() => addtocart(item._id)}>
                   Add<i></i>
                 </button>
               </div>
