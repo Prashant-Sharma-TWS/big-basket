@@ -455,6 +455,14 @@ font-size: 15px;
   width: 85%;
   margin: auto;
 }
+@media screen and ( max-width: 992px) {
+  .left{
+    display: none;
+  }
+  .right{
+    width: 100%;
+  }
+}
 
 
 
