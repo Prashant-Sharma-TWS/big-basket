@@ -1,64 +1,84 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import SideFilters from "../Products/SideFilters";
 import style from "./singleprod.module.css";
+
 export const SingleProduct = () => {
-  const [image, setImage] = useState(
-    "https://www.bigbasket.com/media/uploads/p/l/1213522_3-nivea-men-fresh-active-roll-on.jpg"
-  );
-  // const [setcontentBox, setSetContentBox] = useState(false);
+  const [value, setValue] = useState(1);
+
+  const [image, setImage] = useState("");
+  const [images, setImages] = useState([]);
+
+  const [product, setProduct] = useState({});
+  const { id } = useParams();
+
+  const [qtype, setqtype] = useState("");
+
+  useEffect(() => {
+    axios.get(`/products/${id}`).then((data) => {
+      setProduct(data.data);
+      setImages(data.data.photo);
+      setImage(images[0]);
+      setqtype(data.data.quantityType);
+    });
+  }, [id]);
 
   return (
     <div>
       <div className={style.mainDiv}>
-        <div className={style.left}>Left</div>
+
+        <div className={style.left}>
+          <SideFilters />
+        </div>
+
         <div className={style.right}>
           <div className={style.rightKaLeftMain}>
-            <img alt="" src={image} className={style.posterImg} />
+            <img src={image} className={style.posterImg} />
+
             <div className={style.subImagesMainiv}>
               <img
-                alt=""
-                src="https://www.bigbasket.com/media/uploads/p/l/1213522_3-nivea-men-fresh-active-roll-on.jpg"
+                src={images[1]}
                 className={style.subImg}
-                onClick={() =>
-                  setImage(
-                    "https://www.bigbasket.com/media/uploads/p/l/1213522_3-nivea-men-fresh-active-roll-on.jpg"
-                  )
-                }
+                onClick={() => setImage(images[1])}
+              />
+
+              <img
+                src={images[2]}
+                className={style.subImg}
+                onClick={() => setImage(images[2])}
+              />
+
+              <img
+                src={images[0]}
+                className={style.subImg}
+                onClick={() => setImage(images[0])}
               />
               <img
-                alt=""
-                src="https://www.bigbasket.com/media/uploads/p/l/1213522-2_2-nivea-men-fresh-active-roll-on.jpg"
+                src={images[1]}
                 className={style.subImg}
-                onClick={() =>
-                  setImage(
-                    "https://www.bigbasket.com/media/uploads/p/l/1213522-2_2-nivea-men-fresh-active-roll-on.jpg"
-                  )
-                }
-              />
-              <img
-                alt=""
-                src="https://www.bigbasket.com/media/uploads/p/l/1213522-4_2-nivea-men-fresh-active-roll-on.jpg"
-                className={style.subImg}
-                onClick={() =>
-                  setImage(
-                    "https://www.bigbasket.com/media/uploads/p/l/1213522-4_2-nivea-men-fresh-active-roll-on.jpg"
-                  )
-                }
-              />
-              <img
-                alt=""
-                src="https://www.bigbasket.com/media/uploads/p/l/1213522-7_2-nivea-men-fresh-active-roll-on.jpg"
-                className={style.subImg}
-                onClick={() =>
-                  setImage(
-                    "https://www.bigbasket.com/media/uploads/p/l/1213522-7_2-nivea-men-fresh-active-roll-on.jpg"
-                  )
-                }
+                onClick={() => setImage(images[1])}
               />
             </div>
           </div>
+
           <div className={style.rightKaRightMain}>
-            <p>Nivea Men Fresh Active Roll On, 2x50 ml (MultiPack)</p>
-            <p>MRP:</p>
+            <p>{product.name}</p>
+
+            <p>
+              MRP:{" "}
+              <span className={style.linethroughPrice}>
+                Rs {product.price}.00
+              </span>
+              <span className={style.orgPrice}>
+                Price: Rs {product.price}.00
+              </span>
+              <span className={style.yousave}>You Save:0%</span>
+              <span style={{ marginLeft: "3px" }}>
+                (Inclusive of all taxes)
+              </span>
+            </p>
+
             <div className={style.ratingDiv}>
               <p className={style.rating}>
                 4.6{" "}
@@ -77,39 +97,103 @@ export const SingleProduct = () => {
               </p>
               <div className={style.ratingCount}>60 Ratings</div>
             </div>
+
             <div className={style.basketButtonGroupMainDiv}>
-              <input />
+              <input
+                value={value}
+                onChange={(e) => setValue(e.currentTarget.value)}
+              />
               <button className={style.addtobasketBtn}>ADD TO BASKET</button>
               <button className={style.saveBtn}>SAVE</button>
             </div>
+
             <div className={style.deleverytruckdiv}>
               <img
-                alt=""
                 src="https://flyclipart.com/thumb2/free-delivery-delivery-delivery-truck-icon-with-png-and-vector-695245.png"
                 className={style.deleverytruckimg}
               />
-              <p className={style.deleverytimep}>
+              <div className={style.deleverytimep}>
                 Standard: Today 3:00PM - 7:30PM
-              </p>
+              </div>
             </div>
+
             <div>
-              <p className={style.packSize}>Pack Sizes</p>
+              <div className={style.packSize}>Pack Sizes</div>
+
+              <div
+                className={style.packDetail}
+                style={{
+                  "background-color": "#E6F3D3",
+                  border: "1px solid #E6F3D3",
+                  marginTop: "3px",
+                }}
+              >
+                <div style={{ marginLeft: "10px" }}>1 {qtype}</div>
+
+                <div style={{ display: "flex" }}>
+                  <div>Rs {product.price}.00</div>
+
+                  <p style={{ marginLeft: "3px", color: "grey" }}>
+                    MRP:{" "}
+                    <span className={style.linethroughPrice}>
+                      Rs {product.price}.00
+                    </span>
+                    <span className={style.yousave}>You Save:0%</span>
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    fontSize: "30px",
+                    color: "white",
+                    fontWeight: "unset",
+                    backgroundColor: "#84C225",
+                    padding: "2px",
+                  }}
+                >
+                  &#10004;
+                </div>
+              </div>
+
+              <div className={style.packDetail} style={{ marginTop: "6px" }}>
+                <div style={{ marginLeft: "10px" }}>2 {qtype}</div>
+                <div style={{ display: "flex" }}>
+                  <div>Rs {product.price * 2}.00</div>
+
+                  <p style={{ marginLeft: "3px", color: "grey" }}>
+                    MRP:{" "}
+                    <span className={style.linethroughPrice}>
+                      Rs {product.price}.00
+                    </span>
+                    <span className={style.yousave}>You Save:0%</span>
+                  </p>
+                </div>
+                <div style={{ fontSize: "30px", color: "grey" }}>&#10004;</div>
+              </div>
+
+              <div className={style.packDetail} style={{ marginTop: "6px" }}>
+                <div style={{ marginLeft: "10px" }}>5 {qtype}</div>
+                <div style={{ display: "flex" }}>
+                  <div>Rs {product.price * 5}.00</div>
+
+                  <p style={{ marginLeft: "3px", color: "grey" }}>
+                    MRP:{" "}
+                    <span className={style.linethroughPrice}>
+                      Rs {product.price}.00
+                    </span>
+                    <span className={style.yousave}>You Save:0%</span>
+                  </p>
+                </div>
+                <div style={{ fontSize: "30px", color: "grey" }}>&#10004;</div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
 
-      {/* <div className={style.accordion}>
-        <div className={({setcontentBox} ? style.active : style.contentBox)}>
-        <div className={style.label}>Benefits</div>
-        <div className={style.content}>
-            <p>1. It has easy to use application.</p>
-            <p>2. Keeps you feeling fresh all day long.</p>
-            <p>3. The deo has antiperspirant protection and reliable safe.</p>
-            <p>4. Giving you protection against bad odour for a long time.</p>
-        </div>
-        </div>
-        </div> */}
+
+      
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.mainDiv {
+/* .mainDiv {
   padding: 0px;
   margin: 0px;
   display: flex;
@@ -8,19 +8,19 @@
 }
 .left {
   width: 20%;
-  /* border: 1px solid black; */
+  
 }
 .right {
   width: 80%;
   display: flex;
-  /* border: 1px solid black; */
+  
 }
 .subImagesMainiv {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 10px;
-  /* border: 1px solid red; */
+  
 }
 .subImg {
   width: 12%;
@@ -29,7 +29,7 @@
   margin: 2px;
 }
 .rightKaLeftMain {
-  /* border: 1px solid blue; */
+  
   width: 50%;
   padding: 2%;
 }
@@ -37,12 +37,12 @@
   width: 100%;
 }
 .rightKaRightMain {
-  /* border: 1px solid green; */
+ 
   width: 50%;
 }
 .ratingDiv {
   display: flex;
-  /* border: 1px solid red; */
+ 
 }
 .rating {
   padding: 0px;
@@ -53,16 +53,16 @@
   font-size: small;
   padding: 0.5%;
   margin-left: 5px;
-  /* border: 1px solid red; */
+  
 }
 .ratingCount {
   margin-left: 8px;
-  /* border: 1px solid red; */
+  
 }
 .basketButtonGroupMainDiv {
   display: flex;
   margin-top: 10px;
-  /* border: 1px solid red; */
+  
 }
 .basketButtonGroupMainDiv > input {
   width: 7%;
@@ -83,7 +83,7 @@
   width: 33%;
   height: 40px;
   margin: 5px;
-  /* border: 1px solid red; */
+  
   border-radius: 2px;
   background-color: #84c225;
   color: #fff;
@@ -108,8 +108,7 @@
   border-radius: 2px;
 }
 .saveBtn:hover {
-  /* box-shadow: 0px 1px #888888b0; */
-  /* box-shadow: inset 0 0 15px #efefef; */
+ 
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
   cursor: pointer;
 }
@@ -118,7 +117,7 @@
   width: 100%;
   height: 35px;
   margin-top: 25px;
-  /* border: 1px solid red; */
+  
 }
 .deleverytimep {
   color: grey;
@@ -127,4 +126,325 @@
 .packSize {
   color: rgba(0, 0, 0, 0.712);
   font-size: 15px;
+} */
+
+.mainDiv{
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  width: 80%;
+  margin: auto;
+  font-family: sans-serif;
 }
+.left{
+  width: 20%;
+  /* border: 1px solid black; */
+}
+.right{
+  width: 80%;
+  display: flex;
+  /* border: 1px solid black; */
+}
+.subImagesMainiv{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  /* border: 1px solid red; */
+}
+.subImg{
+  width: 12%;
+  border: 1px solid rgba(128, 128, 128, 0.473);
+  height: 50px;
+  margin: 2px;
+}
+.rightKaLeftMain{
+  /* border: 1px solid blue; */
+  width: 50%;
+  padding: 2%;
+}
+.posterImg{
+  width: 100%;
+}
+.rightKaRightMain{
+  /* border: 1px solid green; */
+  width: 50%;
+}
+.rightKaRightMain > p:nth-child(1){
+  margin-top: 10px;
+  font-size: 20px;
+}
+.rightKaRightMain > p:nth-child(2){
+  margin-top: 10px;
+  font-size: 13px;
+  color: grey;
+}
+.linethroughPrice{
+  font-size: 13px;
+  text-decoration:line-through;
+}
+.orgPrice{
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+.yousave{
+  color: firebrick;
+  margin-left: 3px;
+}
+.ratingDiv{
+  display: flex;
+  /* border: 1px solid red; */
+}
+.rating{
+  padding: 0px;
+  margin: 0px;
+  color: #689F38;
+  background-color: #c4d8b1b9;
+  width: 8.5%;
+  font-size: small;
+  padding: 0.5%;
+  margin-left: 5px;
+  /* border: 1px solid red; */
+}
+.ratingCount{
+  margin-left: 8px;
+  font-size: 14px;
+  color: grey;
+  /* border: 1px solid red; */
+}
+.basketButtonGroupMainDiv{
+  display: flex;
+  margin-top: 6px;
+  font-size: 13px;
+  /* border: 1px solid red; */
+}
+.basketButtonGroupMainDiv > input{
+  width: 9%;
+  height: 40px;
+  margin: 5px;
+  text-align: center;
+  outline: unset;
+  border: unset;
+  border: 1px solid rgba(128, 128, 128, 0.87);
+  border-radius: 2px;
+  color: grey;
+}
+.basketButtonGroupMainDiv > input:hover{
+  border: 1px solid rgba(0, 0, 0, 0.678);
+}
+.addtobasketBtn{
+  padding: 0px;
+  margin: 0px;
+  width: 35%;
+  height: 40px;
+  margin: 5px 5px 5px 2px;
+  /* border: 1px solid red; */
+  border-radius: 2px;
+  background-color: #84c225;
+  color: #fff;
+  font-weight: 600;
+  outline: unset;
+  border: unset;
+}
+.addtobasketBtn:hover{
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+  cursor: pointer;
+  border: 1px solid #84c225;
+}
+.basketButtonGroupMainDiv > .saveBtn{
+  padding: 0px;
+  margin: 0px;
+  width: 20%;
+  height: 40px;
+  margin: 5px;
+  background-color: unset;
+  border: 1px solid grey;
+  color: grey;
+  border-radius: 2px;
+}
+.saveBtn:hover{
+  /* box-shadow: 0px 1px #888888b0; */
+  /* box-shadow: inset 0 0 15px #efefef; */
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
+
+.deleverytruckdiv{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  margin-top: 25px;
+  /* border: 1px solid red; */
+}
+.deleverytruckimg{
+  height: 100%;
+}
+.deleverytimep{
+  color: grey;
+  height: 100%;
+  font-size: 13px;
+}
+
+.packSize{
+  color: rgba(0, 0, 0, 0.712);
+  font-size: 14px;
+  margin-top: 20px;
+}
+.packDetail{
+  margin: unset;
+  padding: unset;
+  height: unset;
+  border: 1px solid rgba(128, 128, 128, 0.473);
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  border-radius: 5px;
+  height: 50px;
+
+  font-size: 13px;
+}
+.packDetail > div:nth-child(1) ,.packDetail > div:nth-child(2){
+  margin-top: 8px;
+}
+.packDetail p{
+  font-size: 13px;
+}
+
+
+/*  */
+.mainDiv {
+padding: 0px;
+margin: 0px;
+display: flex;
+width: 80%;
+margin: auto;
+font-family: sans-serif;
+}
+.left {
+width: 20%;
+/* border: 1px solid black; */
+}
+.right {
+width: 80%;
+display: flex;
+/* border: 1px solid black; */
+}
+.subImagesMainiv {
+width: 100%;
+display: flex;
+justify-content: center;
+margin-top: 10px;
+/* border: 1px solid red; */
+}
+.subImg {
+width: 12%;
+border: 1px solid grey;
+height: 50px;
+margin: 2px;
+}
+.rightKaLeftMain {
+/* border: 1px solid blue; */
+width: 50%;
+padding: 2%;
+}
+.posterImg {
+width: 100%;
+}
+.rightKaRightMain {
+/* border: 1px solid green; */
+width: 50%;
+}
+.ratingDiv {
+display: flex;
+/* border: 1px solid red; */
+}
+.rating {
+padding: 0px;
+margin: 0px;
+color: #689f38;
+background-color: #c4d8b1b9;
+width: 40px;
+font-size: small;
+padding: 0.5%;
+margin-left: 5px;
+text-align: center;
+/* border: 1px solid red; */
+}
+.ratingCount {
+margin-left: 8px;
+/* border: 1px solid red; */
+}
+.basketButtonGroupMainDiv {
+display: flex;
+margin-top: 10px;
+/* border: 1px solid red; */
+}
+.basketButtonGroupMainDiv > input {
+width: 7%;
+height: 35px;
+margin: 5px;
+text-align: center;
+outline: unset;
+border: unset;
+border: 1px solid rgba(128, 128, 128, 0.87);
+border-radius: 2px;
+}
+.basketButtonGroupMainDiv > input:hover {
+border: 1px solid rgba(0, 0, 0, 0.678);
+}
+.addtobasketBtn {
+padding: 0px;
+margin: 0px;
+width: 33%;
+height: 40px;
+margin: 5px;
+/* border: 1px solid red; */
+border-radius: 2px;
+background-color: #84c225;
+color: #fff;
+font-weight: 600;
+outline: unset;
+border: unset;
+}
+.addtobasketBtn:hover {
+box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+cursor: pointer;
+border: 1px solid #84c225;
+}
+.basketButtonGroupMainDiv > .saveBtn {
+padding: 0px;
+margin: 0px;
+width: 21%;
+height: 40px;
+margin: 5px;
+background-color: unset;
+border: 1px solid grey;
+color: grey;
+border-radius: 2px;
+}
+.saveBtn:hover {
+/* box-shadow: 0px 1px #888888b0; */
+/* box-shadow: inset 0 0 15px #efefef; */
+box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+cursor: pointer;
+}
+.deleverytruckdiv {
+display: flex;
+width: 100%;
+height: 35px;
+margin-top: 25px;
+/* border: 1px solid red; */
+}
+.deleverytimep {
+color: grey;
+font-size: 13px;
+}
+.packSize {
+color: rgba(0, 0, 0, 0.712);
+font-size: 15px;
+}
+
