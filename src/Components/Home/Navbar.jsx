@@ -167,7 +167,6 @@ setTimeout(() => {
 const SearchItemList = ({ itemList, data }) => {
   const [open, setOpen] = useState(false);
   const [up, setUp] = useState(true);
-  console.log(data);
 
   const addtocart = (id) => {
     axios

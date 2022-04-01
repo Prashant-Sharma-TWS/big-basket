@@ -1,12 +1,13 @@
 import { Alert, Snackbar } from "@mui/material";
 import axios from "axios";
-import { getValue } from "../../Utils/localStorage";
 
 import React, { useState, useEffect } from "react";
 import "../Css/allproducts.css";
+import { useSelector } from "react-redux";
 
 const AllProducts = ({ product }) => {
-  const [userid, setUserId] = useState(getValue("userId"));
+  const { data } = useSelector((state) => state.user);
+  const [userid, setUserId] = useState(data.id);
   const vertical = "top";
   const horizontal = "center";
   const [up, setUp] = useState(true);
