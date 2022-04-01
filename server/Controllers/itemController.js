@@ -5,8 +5,11 @@ const Item = require("../Models/itemModel");
 
 router.get("/", async (req, res) => {
   var q = {};
-  if (req.query.cart) {
-    q["cart"] = req.query.cart;
+  if (req.query.user) {
+    q["user"] = req.query.user;
+  }
+  if (req.query.product) {
+    q["product"] = req.query.product;
   }
   try {
     const items = await Item.find(q).populate("product").lean().exec();

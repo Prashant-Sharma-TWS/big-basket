@@ -23,11 +23,10 @@ const CategoryWiseProducts = () => {
   useEffect(() => {
     axios
       .get(
-        `/products/${pathname}?brand=${brand}&season=${season}&country=${country}&sort=${sort}`
+        `/products${pathname}?brand=${brand}&season=${season}&country=${country}&sort=${sort}`
       )
       .then((data) => {
         setProducts(data.data);
-        console.log(data.data);
       });
   }, [pathname, brand, season, country, sort]);
 

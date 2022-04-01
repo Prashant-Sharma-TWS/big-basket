@@ -13,6 +13,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/sellers", async (req, res) => {
+  try {
+    const products = await Product.find().limit(10);
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(400).json(err.message);
+  }
+});
+
 router.get("/cl/:category", async (req, res) => {
   var q = { category: req.params.category };
   if (req.query.brand) {

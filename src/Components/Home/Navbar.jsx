@@ -1,21 +1,41 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
 import { Nav } from "../../Elements/NavbarElement";
 import { MyBasket } from "../MyBasket";
+import { logoutRequest, logoutSuccess } from "../../Redux/Auth/auth.actions";
 import { Shop, ShopByCategory } from "./ShopByCategory";
 import { SignIn } from "./Signin";
+import axios from "axios";
+import { getValue } from "../../Utils/localStorage";
+import { Alert, Snackbar } from "@mui/material";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
   const { isUserLoggedIn } = useSelector((state) => state.auth);
   const [user, setUser] = useState("Prashant Sharma");
   const [location, setLocation] = useState({
     city: "Bangalore",
     pincode: 560004,
   });
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchData, setSearchData] = useState([]);
   const [sidebar, setSidebar] = useState(false);
   const [isSigning, setIsSigning] = useState(false);
+
+  const handleSearch = function (e) {
+    setSearchTerm(e.target.value);
+    fetch("http://localhost:8000/searchterm", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ searchTerm }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((results) => setSearchData(results.results));
+  };
 
   return (
     <>
@@ -53,10 +73,17 @@ export const Navbar = () => {
                 <i></i>
               </div>
               <div className="search-bar big-screen">
-                <input type="text" placeholder="Search for Products.." />
+                <input
+                  type="text"
+                  placeholder="Search for Products.."
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  onKeyUp={handleSearch}
+                />
                 <button type="submit">
                   <i className="search-icon"></i>
                 </button>
+                {searchTerm && <SearchItemList itemList={searchData} />}
               </div>
               <div className="empty-divs"></div>
               <div className="empty-divs"></div>
@@ -64,10 +91,17 @@ export const Navbar = () => {
               <MyBasket/>
             </div>
             <div className="search-bar small-screen">
-              <input type="text" placeholder="Search for Products.." />
+              <input
+                type="text"
+                placeholder="Search for Products.."
+                value={searchTerm}
+                onChange={handleSearch}
+                onKeyUp={handleSearch}
+              />
               <button type="submit">
                 <i className="search-icon"></i>
               </button>
+              {searchTerm && <SearchItemList itemList={searchData} />}
             </div>
           </div>
           <ul className="nav-top">
@@ -95,7 +129,14 @@ export const Navbar = () => {
                   <li>Wallet</li>
                   <li>Ask Us</li>
                   <li>Customer Service</li>
-                  <li>Logout</li>
+                  <li
+                    onClick={() => {
+                      dispatch(logoutRequest());
+                      dispatch(logoutSuccess());
+                    }}
+                  >
+                    Logout
+                  </li>
                 </ul>
               </li>
             ) : (
@@ -124,3 +165,65 @@ setTimeout(() => {
     nav.classList.toggle("scrolling-active", windowPosition);
   });
 }, 1000);
+
+const SearchItemList = ({ itemList }) => {
+  const [userid, setUserId] = useState(getValue("userId"));
+  const [open, setOpen] = useState(false);
+  const [up, setUp] = useState(true);
+
+  const addtocart = (id) => {
+    axios
+      .post("http://localhost:8000/items", {
+        product: id,
+        quantity: 1,
+        user: userid,
+      })
+      .then(() => setOpen(true))
+      .catch((err) => alert(err.message));
+    setUp(!up);
+  };
+
+  return (
+    <>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setOpen(false)}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          Product Successfully Added To Cart
+        </Alert>
+      </Snackbar>
+      <ul className="search-item-list">
+        {itemList.map((item) => (
+          <li key={item._id}>
+            <div className="search-result-left">
+              <div className="image">
+                <img src={item.photo[0]} alt={item.name} />
+              </div>
+              <div className="name">
+                <span>{item.brand}</span>
+                <span>{item.name}</span>
+              </div>
+            </div>
+            <div className="search-result-right">
+              <div className="curr-qty">5 {item.quantityType}</div>
+              <div className="price">Rs. {item.price * 5}</div>
+              <div className="qty">1 qty</div>
+              <div className="cart-btn">
+                <button onClick={() => addtocart(item._id)}>
+                  Add<i></i>
+                </button>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};

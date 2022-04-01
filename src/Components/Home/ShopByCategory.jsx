@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
 import {
@@ -67,14 +67,7 @@ export const Shop = () => {
 };
 
 const TopCategory = ({ categoryData }) => {
-  const defaultCategory = () => {
-    const parent = document.querySelectorAll(".top_category_item");
-    console.log(parent);
-  };
-
-  useEffect(() => {
-    defaultCategory();
-  }, []);
+  const [openDefault, setOpenDefault] = useState(true);
 
   return (
     <CategoryDiv className="show-category">
@@ -84,7 +77,10 @@ const TopCategory = ({ categoryData }) => {
             <Link to={topItem.top_category.url}>
               <span>{topItem.top_category.name}</span>
             </Link>
-            <SubCategory subItems={topItem.sub_cats} />
+            <SubCategory
+              openDefault={index === 0 ? openDefault : false}
+              subItems={topItem.sub_cats}
+            />
           </li>
         ))}
       </ul>
@@ -92,23 +88,33 @@ const TopCategory = ({ categoryData }) => {
   );
 };
 
-const SubCategory = ({ subItems }) => {
+const SubCategory = ({ subItems, openDefault }) => {
   return (
-    <ul className="sub_category">
+    <ul className={openDefault ? "sub_category open-default" : "sub_category"}>
       {subItems.map((subItem) => (
         <li className="sub_category_item" key={subItem.sub_category[0]}>
           {subItem.sub_category[0]}
-          <SubSubCategory subSubItems={subItem.cats} />
-          <PopularSearchTerms PopularSearchItems={subItem.search_term} />
+          <SubSubCategory
+            openDefault={openDefault ? openDefault : false}
+            subSubItems={subItem.cats}
+          />
+          <PopularSearchTerms
+            openDefault={openDefault ? openDefault : false}
+            PopularSearchItems={subItem.search_term}
+          />
         </li>
       ))}
     </ul>
   );
 };
 
-const SubSubCategory = ({ subSubItems }) => {
+const SubSubCategory = ({ subSubItems, openDefault }) => {
   return (
-    <ul className="sub_sub_category">
+    <ul
+      className={
+        openDefault ? "sub_sub_category open-default" : "sub_sub_category"
+      }
+    >
       {subSubItems.map((subSubItem) => (
         <li className="sub_sub_category_item" key={subSubItem.cat[0]}>
           {subSubItem.cat[0]}
@@ -118,9 +124,11 @@ const SubSubCategory = ({ subSubItems }) => {
   );
 };
 
-const PopularSearchTerms = ({ PopularSearchItems }) => {
+const PopularSearchTerms = ({ PopularSearchItems, openDefault }) => {
   return (
-    <ul className="popular_search">
+    <ul
+      className={openDefault ? "popular_search open-default" : "popular_search"}
+    >
       <li className="popular_search_title">Popular Searches</li>
       {PopularSearchItems.map((searchTerm) => (
         <li className="popular_search_item" key={searchTerm.display_term}>
