@@ -23,6 +23,15 @@ const AllProducts = ({ product }) => {
     });
   }, [up, cart]);
 
+  useEffect(() => {
+    const fetchcart = async () => {
+      const res = await fetch("/items/?user=62435193c1dab43bbce3f6eb");
+      const json = await res.json();
+      dispatch(setCart(json));
+    };
+    fetchcart();
+  }, [up]);
+
   const updateQuantity = (id, newQty) => {
     if (newQty === 0) {
       axios
@@ -55,14 +64,7 @@ const AllProducts = ({ product }) => {
     }
   };
 
-  useEffect(() => {
-    const fetchcart = async () => {
-      const res = await fetch("/items/?user=62435193c1dab43bbce3f6eb");
-      const json = await res.json();
-      dispatch(setCart(json));
-    };
-    fetchcart();
-  }, [up]);
+  
 
   return (
     <div className="product-display">
