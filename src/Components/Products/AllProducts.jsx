@@ -62,7 +62,7 @@ const AllProducts = ({ product }) => {
       dispatch(setCart(json));
     };
     fetchcart();
-  }, [addtocart]);
+  }, [up]);
 
   return (
     <div className="product-display">
