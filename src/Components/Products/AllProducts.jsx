@@ -21,6 +21,7 @@ const AllProducts = ({ product }) => {
     axios.get(`/items?user=${userid}&product=${product._id}`).then((data) => {
       setProducts(data.data);
     });
+    // dependency causing infinite render => cart
   }, [up, cart]);
 
   const updateQuantity = (id, newQty) => {
@@ -62,7 +63,9 @@ const AllProducts = ({ product }) => {
       dispatch(setCart(json));
     };
     fetchcart();
-  }, [addtocart]);
+    // dependency causing infinite render => addtocart
+    // }, [addtocart]);
+  }, []);
 
   return (
     <div className="product-display">
