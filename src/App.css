@@ -26,6 +26,7 @@ li {
 
 .App {
   width: 100%;
+  background-color: #fff;
 }
 .App > div {
   max-width: 1350px;
