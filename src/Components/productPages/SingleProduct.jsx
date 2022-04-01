@@ -1,10 +1,44 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import style from "./singleprod.module.css";
 export const SingleProduct = () => {
+  const { id } = useParams();
+  const [userid, setUserId] = useState("62435193c1dab43bbce3f6eb");
+  const [product, setProduct] = useState({});
+
   const [image, setImage] = useState(
     "https://www.bigbasket.com/media/uploads/p/l/1213522_3-nivea-men-fresh-active-roll-on.jpg"
   );
   // const [setcontentBox, setSetContentBox] = useState(false);
+
+  useEffect(() => {
+    axios.get(`/products/${id}`).then((data) => {
+      setProduct(data.data);
+    });
+  }, [userid, id]);
+
+  // {
+  //   _id: "62419c96b164babf01a9d64a",
+  //   name: "Onion - Organically Grown",
+  //   description:
+  //     "It is organically grown and handpicked from farm Product image shown is for representation purpose only, the actually product may vary based on season, produce & availability.",
+  //   price: 33,
+  //   mrp: 41.25,
+  //   discount: 20,
+  //   category: "fruits-vegetables",
+  //   stock: 30,
+  //   brand: "fresho",
+  //   superSaver: true,
+  //   quantityType: "kg",
+  //   season: "summer",
+  //   country: "india",
+  //   photo: [
+  //     "https://www.bigbasket.com/media/uploads/p/l/10000150_19-fresho-onion.jpg",
+  //     "https://www.bigbasket.com/media/uploads/p/l/10000150-2_3-fresho-onion.jpg",
+  //     "https://www.bigbasket.com/media/uploads/p/l/10000150-3_4-fresho-onion.jpg",
+  //   ],
+  // };
 
   return (
     <div>
