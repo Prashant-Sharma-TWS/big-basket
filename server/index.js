@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const connect = require("./configs/db");
 const cors = require("cors");
+const path = require("path")
 
 // controllers require
 const userController = require("./Controllers/userController");
@@ -18,6 +19,10 @@ app.use("/users", userController);
 app.use("/products", productController);
 app.use("/items", itemController);
 app.use("/searchterm", searchController);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"))
+})
 
 app.listen(process.env.PORT, async () => {
   try {
