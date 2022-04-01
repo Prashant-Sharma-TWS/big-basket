@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
@@ -9,6 +9,7 @@ import { Shop, ShopByCategory } from "./ShopByCategory";
 import { SignIn } from "./Signin";
 import axios from "axios";
 import { Alert, Snackbar } from "@mui/material";
+import { setCart } from "../../Redux/cart/CartAction";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,15 @@ export const Navbar = () => {
       })
       .then((results) => setSearchData(results.results));
   };
+
+  useEffect(()=>{
+    const fetchcart = async() =>{
+      const res = await fetch('/items/?user=62435193c1dab43bbce3f6eb')
+      const json = await res.json();
+      dispatch(setCart(json))
+    }
+    fetchcart()
+  },[])
 
   return (
     <>

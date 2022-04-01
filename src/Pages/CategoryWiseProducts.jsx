@@ -28,7 +28,7 @@ const CategoryWiseProducts = () => {
       .then((data) => {
         setProducts(data.data);
       });
-  }, [pathname, brand, season, country, sort]);
+  }, [pathname, brand, season, country, sort,category]);
 
   return (
     <Container className="cont" maxWidth="lg" fixed>

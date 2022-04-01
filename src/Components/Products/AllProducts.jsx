@@ -3,23 +3,25 @@ import axios from "axios";
 
 import React, { useState, useEffect } from "react";
 import "../Css/allproducts.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setCart } from "../../Redux/cart/CartAction";
 
 const AllProducts = ({ product }) => {
-  const { data } = useSelector((state) => state.user);
-  const [userid, setUserId] = useState(data.id);
+  const [userid, setUserId] = useState("62435193c1dab43bbce3f6eb");
   const vertical = "top";
   const horizontal = "center";
   const [up, setUp] = useState(true);
   const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
   const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart.cart)
 
   useEffect(() => {
     axios.get(`/items?user=${userid}&product=${product._id}`).then((data) => {
       setProducts(data.data);
     });
-  }, [up]);
+  }, [up,cart]);
 
   const updateQuantity = (id, newQty) => {
     if (newQty === 0) {
@@ -52,6 +54,15 @@ const AllProducts = ({ product }) => {
       setUp(!up);
     }
   };
+
+  useEffect(()=>{
+    const fetchcart = async() =>{
+      const res = await fetch('/items/?user=62435193c1dab43bbce3f6eb')
+      const json = await res.json();
+      dispatch(setCart(json))
+    }
+    fetchcart()
+  },[addtocart])
 
   return (
     <div className="product-display">

@@ -8,11 +8,12 @@ import styles from "./basket.module.css";
 export const BasketList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart.cart);
-  let subtotal = 0;
-  cart.map((item) => {
-    subtotal += item.quantity * item.price;
-  });
+  const cart = useSelector(state => state.cart.cart);
+  
+  let subtotal = 0
+  cart.map(item => {
+    subtotal += item.quantity * item.product.price
+  })
 
   return (
     <div className={styles.container}>

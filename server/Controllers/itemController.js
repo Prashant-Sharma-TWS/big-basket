@@ -48,6 +48,21 @@ router.patch("/:id", async (req, res) => {
   }
 });
 
+router.delete("/deleteall", async (req, res) => {
+  console.log(req.query)
+  let q = {}
+  if(req.query.user){
+    q["user"] = req.query.user
+  }
+
+  try {
+    const item = await Item.deleteMany(q);
+    res.status(201).send("successfully deleted");
+  } catch (err) {
+    res.status(400).json(err.message);
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   try {
     const item = await Item.findByIdAndDelete(req.params.id);
@@ -56,5 +71,4 @@ router.delete("/:id", async (req, res) => {
     res.status(400).json(err.message);
   }
 });
-
 module.exports = router;

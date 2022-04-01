@@ -108,6 +108,11 @@
     background-color: white;
 }
 
+.listItems img{
+    border: 1px solid rgba(0, 0, 0, 0.479);
+    margin-left: .7rem;
+}
+
 .listItems div{
     display: flex;
     flex-direction: column;
