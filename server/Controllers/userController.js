@@ -31,11 +31,15 @@ router.post("/signin/", async (req, res) => {
     let user = await User.exists(criteria);
     // if exists, send a 404
     if (user) {
-      return res.status(200).json({ otp: "Enter last four digit of number" });
+      return res
+        .status(200)
+        .json({ userId: user._id, otp: "Enter last four digit of number" });
     }
     // else create a user
     user = await User.create(criteria);
-    res.status(200).json({ otp: "Enter last four digit of number" });
+    res
+      .status(200)
+      .json({ userId: user._id, otp: "Enter last four digit of number" });
   } catch (err) {
     return res.status(500).json({ status: "failed", message: err.message });
   }

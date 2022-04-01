@@ -9,8 +9,8 @@ import {
 } from "./auth.actionTypes";
 
 const initialState = {
-  isUserLoggedIn: getValue("user") ? true : false,
-  userToken: getValue("user"),
+  isUserLoggedIn: getValue("usertoken") ? true : false,
+  userToken: getValue("usertoken"),
   isLoading: false,
   error: false,
 };
@@ -25,7 +25,7 @@ export const authReducer = (state = initialState, { type, payload }) => {
       };
     }
     case USER_LOGIN_SUCCESS: {
-      setValue("user", payload);
+      setValue("usertoken", payload);
       return {
         ...state,
         isUserLoggedIn: true,
@@ -50,6 +50,7 @@ export const authReducer = (state = initialState, { type, payload }) => {
       };
     }
     case USER_LOGOUT_SUCCESS: {
+      setValue("usertoken", "");
       setValue("user", "");
       return {
         ...state,

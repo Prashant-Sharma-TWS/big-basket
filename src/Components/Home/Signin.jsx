@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginRequest, loginSuccess } from "../../Redux/Auth/auth.actions";
+import {
+  userUpdateRequest,
+  userUpdateSuccess,
+} from "../../Redux/User/user.actions";
 import { SigninSection } from "../../Elements/NavbarElement";
 import axios from "axios";
 
 export const SignIn = ({ isSigning, setIsSigning }) => {
+  const { data } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [otp, setotp] = useState(false);
   const [otpValue, setotpValue] = useState("");
@@ -28,11 +33,13 @@ export const SignIn = ({ isSigning, setIsSigning }) => {
       // then number is correct send to backend and get otp
       axios
         .post("http://localhost:8000/users/signin", userDetails)
-        .then((res) =>
+        .then((res) => {
+          dispatch(userUpdateRequest());
+          dispatch(userUpdateSuccess({ id: res.data.userId }));
           res.data.otp === "Enter last four digit of number"
             ? setotp(true)
-            : alert(`Enter details are invalid.`)
-        );
+            : alert(`Enter details are invalid.`);
+        });
     }
     if (userDetails.email) {
       // then send email to backend validate it and get otp

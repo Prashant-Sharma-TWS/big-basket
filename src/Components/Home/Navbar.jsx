@@ -13,12 +13,13 @@ import { Alert, Snackbar } from "@mui/material";
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { isUserLoggedIn } = useSelector((state) => state.auth);
-  const [cart, setCart] = useState(0);
-  const [user, setUser] = useState("Prashant Sharma");
-  const [location, setLocation] = useState({
-    city: "Bangalore",
-    pincode: 560004,
-  });
+  const { data } = useSelector((state) => state.user);
+  // const [cart, setCart] = useState(0);
+  // const [user, setUser] = useState("Prashant Sharma");
+  // const [location, setLocation] = useState({
+  //   city: "Bangalore",
+  //   pincode: 560004,
+  // });
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState([]);
   const [sidebar, setSidebar] = useState(false);
@@ -83,19 +84,21 @@ export const Navbar = () => {
                 <button type="submit">
                   <i className="search-icon"></i>
                 </button>
-                {searchTerm && <SearchItemList itemList={searchData} />}
+                {searchTerm && (
+                  <SearchItemList itemList={searchData} data={data} />
+                )}
               </div>
               <div className="empty-divs"></div>
               <div className="empty-divs"></div>
               <div className="basket">
                 <span>
                   <i className="basket-image"></i>
-                  <b className="cart-count">{cart}</b>
+                  <b className="cart-count">{data.cartValue}</b>
                 </span>
                 <div>
                   <span className="my-basket">My Basket</span>
                   <span className="cart-value">
-                    {cart}
+                    {data.cartValue}
                     <span>items</span>
                   </span>
                 </div>
@@ -112,7 +115,9 @@ export const Navbar = () => {
               <button type="submit">
                 <i className="search-icon"></i>
               </button>
-              {searchTerm && <SearchItemList itemList={searchData} />}
+              {searchTerm && (
+                <SearchItemList itemList={searchData} data={data} />
+              )}
             </div>
           </div>
           <ul className="nav-top">
@@ -123,14 +128,14 @@ export const Navbar = () => {
             <li className="location">
               <i></i>
               <span>
-                {location.pincode}, {location.city}
+                {data.location.pincode}, {data.location.city}
               </span>
               <ArrowDown top="-3px" color="#4a4a4a" />
             </li>
             {isUserLoggedIn ? (
               <li className="user user-onlogin">
                 <i></i>
-                <span>{user}</span>
+                <span>{data.name}</span>
                 <ArrowDown className="arrow-down" top="-3px" color="#4a4a4a" />
                 <ul className="user-option">
                   <li>My Account</li>
@@ -177,7 +182,7 @@ setTimeout(() => {
   });
 }, 1000);
 
-const SearchItemList = ({ itemList }) => {
+const SearchItemList = ({ itemList, data }) => {
   const [userid, setUserId] = useState(getValue("userId"));
   const [open, setOpen] = useState(false);
   const [up, setUp] = useState(true);
