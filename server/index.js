@@ -19,10 +19,10 @@ app.use("/products", productController);
 app.use("/items", itemController);
 app.use("/searchterm", searchController);
 
-app.listen(process.env.BACKEND_PORT, async () => {
+app.listen(process.env.PORT, async () => {
   try {
     await connect();
-    console.log("server is running on port: ", process.env.BACKEND_PORT);
+    console.log("server is running on port: ", process.env.PORT);
   } catch (e) {
     console.log("connection error: ", e.message);
   }

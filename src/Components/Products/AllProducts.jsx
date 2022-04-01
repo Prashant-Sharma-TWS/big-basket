@@ -44,7 +44,7 @@ const AllProducts = ({ product }) => {
       alert("qunatity can not be less than 1");
     } else {
       axios
-        .post("http://localhost:8000/items", {
+        .post("/items", {
           product: id,
           quantity: qty,
           user: userid,
