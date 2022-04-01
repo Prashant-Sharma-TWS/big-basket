@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ArrowDown } from "../../Elements/Element";
 import { Nav } from "../../Elements/NavbarElement";
+import { MyBasket } from "../MyBasket";
 import { logoutRequest, logoutSuccess } from "../../Redux/Auth/auth.actions";
 import { Shop, ShopByCategory } from "./ShopByCategory";
 import { SignIn } from "./Signin";
@@ -13,7 +14,6 @@ import { Alert, Snackbar } from "@mui/material";
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { isUserLoggedIn } = useSelector((state) => state.auth);
-  const [cart, setCart] = useState(0);
   const [user, setUser] = useState("Prashant Sharma");
   const [location, setLocation] = useState({
     city: "Bangalore",
@@ -87,19 +87,8 @@ export const Navbar = () => {
               </div>
               <div className="empty-divs"></div>
               <div className="empty-divs"></div>
-              <div className="basket">
-                <span>
-                  <i className="basket-image"></i>
-                  <b className="cart-count">{cart}</b>
-                </span>
-                <div>
-                  <span className="my-basket">My Basket</span>
-                  <span className="cart-value">
-                    {cart}
-                    <span>items</span>
-                  </span>
-                </div>
-              </div>
+              {/* basket */}
+              <MyBasket/>
             </div>
             <div className="search-bar small-screen">
               <input
