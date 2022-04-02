@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const connect = require("./configs/db");
 const cors = require("cors");
+const path = require("path")
 
 // controllers require
 const userController = require("./Controllers/userController");
@@ -19,10 +20,14 @@ app.use("/products", productController);
 app.use("/items", itemController);
 app.use("/searchterm", searchController);
 
-app.listen(process.env.BACKEND_PORT, async () => {
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"))
+})
+
+app.listen(process.env.PORT, async () => {
   try {
     await connect();
-    console.log("server is running on port: ", process.env.BACKEND_PORT);
+    console.log("server is running on port: ", process.env.PORT);
   } catch (e) {
     console.log("connection error: ", e.message);
   }

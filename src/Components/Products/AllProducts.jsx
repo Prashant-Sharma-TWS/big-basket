@@ -27,6 +27,15 @@ const AllProducts = ({ product }) => {
     // dependency causing infinite render => cart
   }, [up, cart]);
 
+  useEffect(() => {
+    const fetchcart = async () => {
+      const res = await fetch("/items/?user=62435193c1dab43bbce3f6eb");
+      const json = await res.json();
+      dispatch(setCart(json));
+    };
+    fetchcart();
+  }, [up]);
+
   const updateQuantity = (id, newQty) => {
     if (newQty === 0) {
       axios
@@ -48,7 +57,7 @@ const AllProducts = ({ product }) => {
       alert("qunatity can not be less than 1");
     } else {
       axios
-        .post("http://localhost:8000/items", {
+        .post("/items", {
           product: id,
           quantity: qty,
           user: userid,
@@ -59,6 +68,9 @@ const AllProducts = ({ product }) => {
     }
   };
 
+<<<<<<< HEAD
+  
+=======
   useEffect(() => {
     const fetchcart = async () => {
       const res = await fetch("/items/?user=62435193c1dab43bbce3f6eb");
@@ -69,6 +81,10 @@ const AllProducts = ({ product }) => {
     // dependency causing infinite render => addtocart
     // }, [addtocart]);
   }, []);
+<<<<<<< HEAD
+>>>>>>> 56a7cedc2d0eb7b66bf6c2f843667afde5a77388
+=======
+>>>>>>> 56a7cedc2d0eb7b66bf6c2f843667afde5a77388
 
   return (
     <div

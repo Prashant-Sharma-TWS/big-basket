@@ -32,7 +32,7 @@ export const SignIn = ({ isSigning, setIsSigning }) => {
     if (userDetails.number && userDetails.number.length === 10) {
       // then number is correct send to backend and get otp
       axios
-        .post("http://localhost:8000/users/signin", userDetails)
+        .post("/users/signin", userDetails)
         .then((res) => {
           dispatch(userUpdateRequest());
           dispatch(userUpdateSuccess({ id: res.data.userId }));
@@ -44,7 +44,7 @@ export const SignIn = ({ isSigning, setIsSigning }) => {
     if (userDetails.email) {
       // then send email to backend validate it and get otp
       axios
-        .post("http://localhost:8000/users/signin", userDetails)
+        .post("/users/signin", userDetails)
         .then((res) =>
           res.data.otp === "Enter last four digit of number"
             ? setotp(true)
