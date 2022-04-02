@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import "../Css/allproducts.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../../Redux/cart/CartAction";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 const AllProducts = ({ product }) => {
   const [userid, setUserId] = useState("62435193c1dab43bbce3f6eb");
@@ -15,12 +16,15 @@ const AllProducts = ({ product }) => {
   const [open, setOpen] = useState(false);
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const pathname = useParams();
   const cart = useSelector((state) => state.cart.cart);
 
   useEffect(() => {
     axios.get(`/items?user=${userid}&product=${product._id}`).then((data) => {
       setProducts(data.data);
     });
+    // dependency causing infinite render => cart
   }, [up, cart]);
 
   useEffect(() => {
@@ -64,10 +68,26 @@ const AllProducts = ({ product }) => {
     }
   };
 
+<<<<<<< HEAD
   
+=======
+  useEffect(() => {
+    const fetchcart = async () => {
+      const res = await fetch("/items/?user=62435193c1dab43bbce3f6eb");
+      const json = await res.json();
+      dispatch(setCart(json));
+    };
+    fetchcart();
+    // dependency causing infinite render => addtocart
+    // }, [addtocart]);
+  }, []);
+>>>>>>> 56a7cedc2d0eb7b66bf6c2f843667afde5a77388
 
   return (
-    <div className="product-display">
+    <div
+      className="product-display"
+      onClick={() => navigate(`/cl/${pathname.category}/${product._id}`)}
+    >
       <div>
         <Snackbar
           open={open}

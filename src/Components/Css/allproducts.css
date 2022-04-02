@@ -5,6 +5,7 @@
     gap: 12px;
     padding-top: 5px;
     line-height: initial !important;
+    cursor: pointer;
 }
 
 .product-display:hover {
