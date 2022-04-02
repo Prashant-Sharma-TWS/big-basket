@@ -26,16 +26,18 @@ BigBasket is an online supermarket for all your daily needs.<br/>
 </ul>
 
 <h2>Quick view of the project:</h2>
+
 <p>1. The Landing Page</p>
-<img src="" />
+<img src="https://user-images.githubusercontent.com/63180404/161370254-3845c8c9-9c46-4948-a09f-82ee82f7eb08.png" />
 
 <p>2. The Products Page</p>
-   <img src="" />
+   <img src="https://user-images.githubusercontent.com/63180404/161370256-f9e9b37b-5e64-467d-b574-6ccf3a40aaed.png" />
+   <img src="https://user-images.githubusercontent.com/63180404/161370258-c071780f-2392-4d73-b85c-c728246001a0.png" />
 
 <p>3. The Checkout Page</p>
-   <img src="" />
+   <img src="https://user-images.githubusercontent.com/63180404/161370257-1768aa51-625a-4493-8f26-972fbd5d8295.png" />
 
 <p>4. The Login/Signup Page</p>
-   <img src="" />
+   <img src="https://user-images.githubusercontent.com/63180404/161370252-b09c6652-ab31-4cab-aaaf-ab9dc933c5c6.png" />
 
 ### Thanks for having a look at our project😊.
