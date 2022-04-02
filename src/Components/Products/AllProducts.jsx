@@ -81,6 +81,9 @@ const AllProducts = ({ product }) => {
     // dependency causing infinite render => addtocart
     // }, [addtocart]);
   }, []);
+<<<<<<< HEAD
+>>>>>>> 56a7cedc2d0eb7b66bf6c2f843667afde5a77388
+=======
 >>>>>>> 56a7cedc2d0eb7b66bf6c2f843667afde5a77388
 
   return (
