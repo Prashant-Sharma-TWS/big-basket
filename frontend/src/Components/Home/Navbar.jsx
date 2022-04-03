@@ -22,7 +22,7 @@ export const Navbar = () => {
 
   const handleSearch = function (e) {
     setSearchTerm(e.target.value);
-    fetch("http://localhost:8000/searchterm", {
+    fetch("/searchterm", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ searchTerm }),
@@ -33,14 +33,14 @@ export const Navbar = () => {
       .then((results) => setSearchData(results.results));
   };
 
-  useEffect(()=>{
-    const fetchcart = async() =>{
-      const res = await fetch('/items/?user=62435193c1dab43bbce3f6eb')
+  useEffect(() => {
+    const fetchcart = async () => {
+      const res = await fetch("/items/?user=62435193c1dab43bbce3f6eb");
       const json = await res.json();
-      dispatch(setCart(json))
-    }
-    fetchcart()
-  },[])
+      dispatch(setCart(json));
+    };
+    fetchcart();
+  }, []);
 
   return (
     <>
@@ -180,7 +180,7 @@ const SearchItemList = ({ itemList, data }) => {
 
   const addtocart = (id) => {
     axios
-      .post("http://localhost:8000/items", {
+      .post("/items", {
         product: id,
         quantity: 1,
         user: data.id,
