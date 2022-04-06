@@ -1,7 +1,7 @@
 # Big-Basket
 
 BigBasket is an online supermarket for all your daily needs.<br/>
-<a href="https://prashant-sharma-tws.github.io/big-basket/" target="_blank">Click here for Live demo</a>
+<a href="https://big-basket-1.netlify.app/" target="_blank">Click here for Live demo</a>
 
 ## Team members:
 
